@@ -451,6 +451,20 @@ namespace List
             // update the size accordingly
             setSize();
         }
+        // destroy a node at the end of the list
+        void pop()
+        {
+            if (this->isEmpty())
+            {
+                std::cout << "\x1B[31mTHE LINKED LIST IS EMPTY\x1B[0m" << std::endl;
+            }
+            else
+            {
+
+            }
+            // update the size accordingly
+            setSize();
+        }
 
     private:
         void setSize()
