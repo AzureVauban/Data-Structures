@@ -408,6 +408,7 @@ namespace List
             }
 
         public:
+            /*
             void recursive_index_set(const int new_index)
             {
                 Node *cur_Next = this->getNext();
@@ -431,7 +432,7 @@ namespace List
                 {
                     std::cout << "THERE IS NO PREVIOUS NODE AT " << this->getData() << " TO GO TO" << std::endl;
                 }
-            }
+            }*/
 
         public: // constructor
                 // TODO ADD CODE TO AUTOMATICALLY SET THE INDEX
