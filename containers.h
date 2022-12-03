@@ -351,6 +351,7 @@ namespace List
         void setSize(const int Size) { this->Size = Size; }
         // getters
         Node *getHead() const { return this->Head; }
+        public:
         Node *getEnd() const
         {
             Node *endpoint = this->getHead();
