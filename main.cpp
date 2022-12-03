@@ -36,7 +36,6 @@ int main()
     IDEs.append("Visual Studio");
     IDEs.append("CLion");
     IDEs.append("PyCharm");
-    IDEs.~List();
     std::cout << "terminating process..." << std::endl;
     return 0;
 }
