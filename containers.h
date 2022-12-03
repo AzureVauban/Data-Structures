@@ -411,19 +411,24 @@ namespace List
             void recursive_index_set(const int new_index)
             {
                 Node *cur_Next = this->getNext();
-                Node* cur_Previous = this->getPrevious();
+                Node *cur_Previous = this->getPrevious();
+                std::cout << "\x1B[38mCALLING RECURSIVE INDEX SET FUNCTION\x1B[0m\n";
                 if (cur_Next)
                 {
                     std::cout << "CALLING NEXT FROM " << this->getData() << " TO " << this->getNext()->getData() << std::endl;
                     this->getNext()->recursive_index_set(new_index + 1);
-                } else {
+                }
+                else
+                {
                     std::cout << "THERE IS NO NEXT NODE AT " << this->getData() << " TO GO TO" << std::endl;
                 }
                 if (cur_Previous)
                 {
                     std::cout << "CALLING PREVIOUS FROM " << this->getData() << " TO " << this->getPrevious()->getData() << std::endl;
                     this->getPrevious()->recursive_index_set(new_index - 1);
-                } else {
+                }
+                else
+                {
                     std::cout << "THERE IS NO PREVIOUS NODE AT " << this->getData() << " TO GO TO" << std::endl;
                 }
             }
