@@ -412,6 +412,7 @@ namespace List
             {
                 if (this->getNext())
                 {
+                    
                 }
                 if (this->getPrevious())
                 {
