@@ -382,6 +382,9 @@ namespace List
             // destroy a Node at the end of the list
             if (!this->isEmpty())
             {
+                Node* endpoint = this->getHead();
+                //set next and previous pointer to the end 
+                
             }
         }
         // constructor
