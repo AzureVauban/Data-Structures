@@ -555,7 +555,10 @@ namespace List
             }
             //traverse to the Node with the same number as the index paramter
             Node* current = this->getHead();
-            
+            while (current->getIndex() != Index) {
+                current=current->getNext();
+            }
+            return current->getData();
         }
 
         // reverse the Nodes of the linked List
