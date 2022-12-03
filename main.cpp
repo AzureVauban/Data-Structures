@@ -37,7 +37,7 @@ int main()
     IDEs.append("Visual Studio Code");
     IDEs.append("Visual Studio");
     IDEs.append("CLion");
-    for (int i = IDEs.getSize()*-2; i != IDEs.getSize()*2; i++)
+    for (int i = -1; i != IDEs.getSize()*2; i++)
     {
         std::cout << IDEs.getData(i) << std::endl;
     }

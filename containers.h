@@ -519,7 +519,7 @@ namespace List
         bool isOutofRange(const int Index) const
         {
             bool indexislessthan0 = Index < 0;
-            bool greaterthansize = Index >= this->getSize()-1;
+            bool greaterthansize = Index >= this->getSize();
             return indexislessthan0 || greaterthansize;
         }
 
