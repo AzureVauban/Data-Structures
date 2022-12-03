@@ -186,10 +186,9 @@ namespace Stack
 namespace Queue
 {
     // use for "first in, first out" approach to handling data
-    class Queue
+    class Queue // TODO ADD INTIALIZATION (inital size, inital data)
     {
-
-        Node *Front;
+        Node *Front; // next should always be Null
         int Size;
 
     private:
@@ -310,8 +309,9 @@ namespace Queue
             //  set size
             this->setSize();
         }
-        void empty() {
-             while (this->getFront())
+        void empty()
+        {
+            while (this->getFront())
             {
                 this->dequeue();
             }
