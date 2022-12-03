@@ -346,9 +346,22 @@ namespace List
         */
         Node *Head;
         int Size;
-        //setters
-        void setHead(Node * head) { this->Head = head; }
+        // setters
+        void setHead(Node *head) { this->Head = head; }
         void setSize(const int Size) { this->Size = Size; }
+        // getters
+    public:
+        // functions
+        // constructor
+        explicit List()
+        {
+            this->setHead(nullptr);
+            this->setSize(0);
+        }
+        // destructor
+        ~List()
+        {
+        }
     };
 }
 // end of containers.h
