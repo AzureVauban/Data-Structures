@@ -338,59 +338,66 @@ namespace List
     class List
     {
         // custom class Node class for Linked List
-        namespace List_Node
+        class Node
         {
-            class Node
+            int Index;
+            Node *Next;
+            std::string Data;
+            Node *Previous;
+            // setters
+            void setIndex(int Index) { this->Index = Index; }
+            void setNext(Node *Next) { this->Next = Next; }
+            void setPrevious(Node *Previous) { this->Previous = Previous; }
+            void setData(std::string Data) { this->Data = std::move(Data); }
+            // getters
+            int getIndex() const { return this->Index; }
+            Node *getNext() const { return this->Next; }
+            Node *getPrevious() const { return this->Previous; }
+            // functions
+            void initalize_Index()
             {
-                int Index;
-                Node *Next;
-                std::string Data;
-                Node *Previous;
-                // setters
-                void setIndex(int Index) { this->Index = Index; }
-                void setNext(Node *Next) { this->Next = Next; }
-                void setPrevious(Node *Previous) { this->Previous = Previous; }
-                void setData(std::string Data) { this->Data = std::move(Data); }
-                // getters
-                int getIndex() const { return this->Index; }
-                Node *getNext() const { return this->Next; }
-                Node *getPrevious() const { return this->Previous; }
-                // functions
-                void initalize_Index()
+                int indicies[2] = {0, 0};
+                if (this->getPrevious())
                 {
-                    int indicies[2] = {0, 0};
-                    if (this->getPrevious())
-                    {
-                        indicies[0] = Previous->getIndex() - 1;
-                    }
-                    if (this->getNext())
-                    {
-                        indicies[1] = Next->getIndex() + 1;
-                    }
-                    // set index to the greatest number
-                    if (indicies[1] > indicies[0])
-                    {
-                        this->setIndex(indicies[1]);
-                    }
-                    else
-                    {
-                        this->setIndex(indicies[0]);
-                    }
+                    indicies[0] = Previous->getIndex() - 1;
                 }
+                if (this->getNext())
+                {
+                    indicies[1] = Next->getIndex() + 1;
+                }
+                // set index to the greatest number
+                if (indicies[1] > indicies[0])
+                {
+                    this->setIndex(indicies[1]);
+                }
+                else
+                {
+                    this->setIndex(indicies[0]);
+                }
+            }
 
-            public:
-                // constructor
-                Node(Node *Next, std::string &Data, Node *Previous)
-                {
-                    this->setNext(Next);
-                    this->setPrevious(Previous);
-                    this->setData(std::move(Data));
-                    // set the Index of the Node
-                    this->initalize_Index();
-                }
-            };
+        public:
+            // constructor
+            Node(Node *Next, std::string &Data, Node *Previous)
+            {
+                this->setNext(Next);
+                this->setPrevious(Previous);
+                this->setData(std::move(Data));
+                // set the Index of the Node
+                this->initalize_Index();
+            }
+        };
+
+        List::Node *head;
+        // setters
+        void setHead(List::Node *Head) { this->head = Head; }
+
+    public:
+        // constructor
+        explicit List()
+        {
+            this->setHead(nullptr);
         }
-        // private class members
     };
 }
 
