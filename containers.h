@@ -354,11 +354,12 @@ namespace List
             // traverse upward until the pointer is null
             Node *current = this->getHead();
             int new_size = 0;
-            while (current)
+            while (current) // TODO DEBUG THIS FUNCTION - INFINITE LOOP OCCURANCE
             {
                 new_size += 1;
                 current = current->getNext();
-                std::cout << new_size << ":" << "s"<< std::endl;
+                std::cout << new_size << ":"
+                          << "s" << std::endl;
             }
             this->Size = new_size;
         }
