@@ -37,5 +37,8 @@ int main()
     Groceries.append("Apple");
     Groceries.append("Pears");
     Groceries.pop();
+    Groceries.pop();
+    Groceries.pop();
+    Groceries.pop();
     return 0;
 }

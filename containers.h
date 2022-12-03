@@ -401,7 +401,7 @@ namespace List
                     new_endpoint->setNext(nullptr);
                 }
                 std::cout << "\x1B[32mDESTROYED AN OBJECT AT THE END OF THE LIST\x1B[0m" << std::endl;
-                this;
+                delete old_endpoint;
             }
             // set the new size of the Linked List
         }
