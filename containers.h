@@ -447,7 +447,7 @@ namespace List
                 // endpoint->setNext(new_Node);
             }
             // peak for debug purposes only
-            this->getEnd()->getData();
+            //  this->getEnd()->getData();
             // update the size accordingly
             setSize();
         }
@@ -478,9 +478,11 @@ namespace List
                     current = current->getNext();
                     new_size += 1;
                 }
-            this->Size = new_size+1;
-            } else {
-            this->Size = 0;
+                this->Size = new_size + 1;
+            }
+            else
+            {
+                this->Size = 0;
             }
         }
 
@@ -494,7 +496,7 @@ namespace List
         }
 
         // destructor
-        ~List() { delete this->getHead(); }
+        ~List() {}
     };
 }
 
