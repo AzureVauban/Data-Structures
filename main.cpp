@@ -37,7 +37,11 @@ int main()
     IDEs.append("Visual Studio Code");
     IDEs.append("Visual Studio");
     IDEs.append("CLion");
-    for (int i = -1; i != IDEs.getSize()*2; i++)
+    IDEs.append("CodeBlocks");
+    IDEs.append("Replit");
+    IDEs.append("Pycharm");
+    IDEs.append("Vim");
+    for (int i = -1; i != IDEs.getSize(); i++)
     {
         std::cout << IDEs.getData(i) << std::endl;
     }

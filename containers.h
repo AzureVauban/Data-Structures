@@ -382,7 +382,7 @@ namespace List
 
             Node *getPrevious() const { return this->Previous; }
 
-            std::string getData() const { return this->Data; }
+            const std::string &getData() const { return this->Data; }
 
         private: // functions
             void initalize_Index()
@@ -483,7 +483,7 @@ namespace List
                 }
                 delete this->Next;
                 delete this->Previous;
-                std::cout << "DESTROYED NODE AT " << this << std::endl;
+                //? std::cout << "DESTROYED NODE AT " << this << std::endl;
             }
         };
 
@@ -511,7 +511,8 @@ namespace List
         }
 
     public:
-        int getSize() const { return this->Size; }
+        // TODO REFORMATE NON-POINTER GETTERS TO THIS
+        const int &getSize() const { return this->Size; }
 
     private: // functions
         // TODO MAKE THIS TEMPORARILY PUBLIC
@@ -525,7 +526,7 @@ namespace List
 
     public:
         // returns true if the head pointer is null
-        bool isEmpty() const { return this->head == nullptr; }
+        const bool isEmpty() const { return this->head == nullptr; }
 
         // append to the end of the linked list
         void append(std::string Data)
@@ -546,17 +547,18 @@ namespace List
         }
 
         // get data located at a specified index
-        std::string getData(const int Index)
+        const std::string getData(const int Index) const
         {
-            std::cout << Index;
             if (isOutofRange(Index))
             {
-                return "1x0";
+                const std::string default_str = "\x1B[31m0x0\x1B[0m";
+                return default_str;
             }
-            //traverse to the Node with the same number as the index paramter
-            Node* current = this->getHead();
-            while (current->getIndex() != Index) {
-                current=current->getNext();
+            // traverse to the Node with the same number as the index paramter
+            Node *current = this->getHead();
+            while (current->getIndex() != Index)
+            {
+                current = current->getNext();
             }
             return current->getData();
         }
