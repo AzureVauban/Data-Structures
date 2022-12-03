@@ -16,6 +16,5 @@ int main()
         std::cout << queue.getData() << std::endl;
         queue.dequeue();
     }
-    Playlist.
 }
 return 0;

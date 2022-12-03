@@ -310,6 +310,11 @@ namespace Queue
             //  set size
             this->setSize();
         }
+        void clear() {
+            /// clear the Queue
+            ///@brief clear the Queue
+            
+        }
         // constructor
         Queue()
         {
