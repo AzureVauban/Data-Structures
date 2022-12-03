@@ -344,25 +344,39 @@ namespace List
         - reverse
         - size
         */
-        Node *Head; //prev is always nullptr
+        Node *Head; // prev is always nullptr
         int Size;
         // setters
         void setHead(Node *head) { this->Head = head; }
         void setSize(const int Size) { this->Size = Size; }
         // getters
         Node *getHead() const { return this->Head; }
+        Node *getEnd() const
+        {
+            Node *endpoint = this->getHead();
+            //traverse to the end of the list
+            while 
+            return endpoint;
+        }
 
     public:
         // functions
         bool isEmpty() const { return this->getHead() == nullptr; }
-        void append(const std::string Data) {
-            //append a new Node to the end of the list
+        void append(const std::string Data)
+        {
+            // append a new Node to the end of the list
             if (this->isEmpty())
             {
-                this->setHead(new Node(nullptr,std::move(Data),nullptr));
+                this->setHead(new Node(nullptr, std::move(Data), nullptr));
             }
         }
-        void d
+        void pop()
+        {
+            // destroy a Node at the end of the list
+            if (!this->isEmpty())
+            {
+            }
+        }
         // constructor
         explicit List()
         {
