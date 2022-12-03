@@ -28,6 +28,7 @@ void queue_demo()
     Playlist.~Queue();
 }
 */
+
 int main()
 {
     // queue_demo();
@@ -36,11 +37,7 @@ int main()
     IDEs.append("Visual Studio");
     IDEs.append("CLion");
     IDEs.append("PyCharm");
-    IDEs.pop();
-    IDEs.pop();
-    IDEs.pop();
-    IDEs.pop();
-    IDEs.pop();
     std::cout << "terminating process..." << std::endl;
+    IDEs.
     return 0;
 }
