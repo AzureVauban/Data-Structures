@@ -10,11 +10,17 @@ int main()
     Playlist.enqueue("Deadlife - Downpour");
     Playlist.enqueue("Perturbator - Sexualizer");
     std::cout << "Songs in my Synthwave Music Queue" << std::endl;
-    printQueue(Playlist);
-    for (int i = queue.getSize(); i > 0; i--)
+    for (int i = Playlist.getSize(); i > 0; i--)
     {
-        std::cout << queue.getData() << std::endl;
-        queue.dequeue();
+        std::cout << Playlist.getData() << std::endl;
+        Playlist.dequeue();
     }
+    //test queue empty()
+    Queue::Queue New_Playlist;
+    for (int i = 0; i < 5; i++)
+    {
+        New_Playlist.enqueue("UNKNOWN ARTIST - TOP SECRET SONG");
+    }
+    New_Playlist.empty();
+    return 0;
 }
-return 0;

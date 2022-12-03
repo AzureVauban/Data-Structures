@@ -310,10 +310,12 @@ namespace Queue
             //  set size
             this->setSize();
         }
-        void clear() {
-            /// clear the Queue
-            ///@brief clear the Queue
-            
+        void empty() {
+             while (this->getFront())
+            {
+                this->dequeue();
+            }
+            delete this->getFront();
         }
         // constructor
         Queue()
@@ -323,11 +325,7 @@ namespace Queue
         }
         ~Queue()
         {
-            while (this->getFront())
-            {
-                this->dequeue();
-            }
-            delete this->getFront();
+            empty();
         }
     };
 }
