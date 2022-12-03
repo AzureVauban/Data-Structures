@@ -355,7 +355,7 @@ namespace List
         {
             Node *endpoint = this->getHead();
             //traverse downto the end of the list
-            while (endpoint->getPrev())
+            while (endpoint->getPrev()) {}
             return endpoint;
         }
 
