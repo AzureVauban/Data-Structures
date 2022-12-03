@@ -378,6 +378,7 @@ namespace List
                 // set the new Node to the next Node on the endpoint
                 endpoint->setNext(new_node);
                 std::cout << "\x1B[32mAPPENDED OBJECT (" << Data << ") AT THE END OF THE LIST\x1B[0m" << std::endl;
+                this;
             }
             // set the new size of the Linked List
         }
@@ -393,8 +394,9 @@ namespace List
                 // get the last two Nodes
                 Node *old_endpoint = this->getEnd();          // last Node
                 Node *new_endpoint = old_endpoint->getPrev(); // second to Last
-                //if (new_endpoint->getNext()) { }
+                // if (new_endpoint->getNext()) { }
                 std::cout << "\x1B[32mDESTROYED AN OBJECT AT THE END OF THE LIST\x1B[0m" << std::endl;
+                this;
             }
             // set the new size of the Linked List
         }

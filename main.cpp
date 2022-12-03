@@ -29,9 +29,9 @@ void queue_demo()
 int main()
 {
     // queue_demo();
-    //Linked List of Groceries!
+    // Linked List of Groceries!
     List::List Groceries;
-    //Groceries.
+    // Groceries.
     std::cout << Groceries.getSize() << std::endl;
     Groceries.append("Oranges");
     Groceries.append("Apple");
