@@ -329,11 +329,26 @@ namespace Queue
         }
     };
 }
-namespace List{
-    //Linked List class
-    class List {
+namespace List
+{
+    // Linked List class
+    class List
+    {
         // TODO ADD INTIALIZATION (inital size, inital data)
-
-    }
+        /*
+        functions
+        - append
+        - insert (append at index)
+        - remove (remove at index)
+        - pop
+        - reverse
+        - size
+        */
+        Node *Head;
+        int Size;
+        //setters
+        void setHead(Node * head) { this->Head = head; }
+        void setSize(const int Size) { this->Size = Size; }
+    };
 }
 // end of containers.h
