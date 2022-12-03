@@ -412,11 +412,11 @@ namespace List
             {
                 if (this->getNext())
                 {
-                    this->getNext()->recursive_index_set(new_index+1);
+                    this->getNext()->recursive_index_set(new_index + 1);
                 }
                 if (this->getPrevious())
                 {
-                    this->getPrevious()->recursive_index_set(new_index-1);
+                    this->getPrevious()->recursive_index_set(new_index - 1);
                 }
             }
 
