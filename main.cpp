@@ -28,15 +28,18 @@ void queue_demo()
 }
 int main()
 {
-    //queue_demo();
+    // queue_demo();
     List::List Garage;
     if (Garage.isEmpty())
     {
         std::cout << "There are no cars in the garage!" << std::endl;
-    } else {
+    }
+    else
+    {
         std::cout << "there's cars in the garage!" << std::endl;
     }
-    auto garage_head = Garage.getEnd();
-    Garage.append("");
+    // auto garage_head = Garage.getEnd();
+    Garage.append("Mustang GT");
+    Garage.pop();
     return 0;
 }
