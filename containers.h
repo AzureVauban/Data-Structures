@@ -1,6 +1,4 @@
-#ifndef B67F6159_40AF_40F6_B9CE_800AD3727E4A
-#define B67F6159_40AF_40F6_B9CE_800AD3727E4A
-
+#pragma once
 #include <iostream>
 
 class Node
@@ -196,6 +194,7 @@ namespace Stack
     };
 }
 */
+
 namespace Queue
 {
     // use for "first in, first out" approach to handling data
@@ -274,18 +273,17 @@ namespace Queue
             {
                 Node *front = this->getFront();
                 this->setFront(new Node(nullptr, std::move(Data), nullptr));
-                /*
-                OLD STATE: FRONT = 0
-                NEW STATE: FRONT = (NO PREV, 0, NO NEXT)
-                */
+
+                //? OLD STATE: FRONT = 0
+                //? NEW STATE: FRONT = (NO PREV, 0, NO NEXT)
             }
             else
             {
-                /*
-                OLD STATE: FRONT = (NO PREV, 0, NO NEXT)
-                NEW STATE: FRONT = (NO PREV, 0, NEXT)
-                           NEXT = (FRONT, 1, NO NEXT)
-                */
+
+                //?                OLD STATE: FRONT = (NO PREV, 0, NO NEXT)
+                //?                NEW STATE: FRONT = (NO PREV, 0, NEXT)
+                //?                           NEXT = (FRONT, 1, NO NEXT)
+
                 // get the end pointer
                 Node *endpoint = this->getBack();
                 // make a new Node with the endpoint as the next address
@@ -299,14 +297,14 @@ namespace Queue
 
         void dequeue()
         {
-            /*
-            old_front, new_front
-            the new_front is the previous pointer of the old_front
-            old_front's previous becomes nullptr
-            new_front's next becomes nullptr
-            deallocate the old_front pointer
-            set front to the new front pointer
-            */
+            
+//?            old_front, new_front
+//?            the new_front is the previous pointer of the old_front
+//?            old_front's previous becomes nullptr
+//?            new_front's next becomes nullptr
+//?            deallocate the old_front pointer
+//?            set front to the new front pointer
+            
             if (this->isEmpty())
             {
                 std::cout << "\x1B[31mTHERE ARE NO OBJECTS TO DEQUEUE\x1B[0m" << std::endl;
@@ -352,6 +350,7 @@ namespace Queue
         }
     };
 }
+
 namespace List
 {
     // Linked List class
@@ -561,5 +560,3 @@ namespace List
 }
 
 // end of containers.h
-
-#endif /* B67F6159_40AF_40F6_B9CE_800AD3727E4A */
