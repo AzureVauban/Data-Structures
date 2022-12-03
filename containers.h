@@ -344,7 +344,7 @@ namespace List
         - reverse
         - size
         */
-        Node *Head;
+        Node *Head; //prev is always nullptr
         int Size;
         // setters
         void setHead(Node *head) { this->Head = head; }
@@ -360,10 +360,9 @@ namespace List
             if (this->isEmpty())
             {
                 this->setHead(new Node(nullptr,std::move(Data),nullptr));
-            } else {
-
             }
         }
+        void d
         // constructor
         explicit List()
         {
