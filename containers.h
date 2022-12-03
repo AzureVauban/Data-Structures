@@ -496,7 +496,10 @@ namespace List
         }
 
         // destructor
-        ~List() {}
+        ~List()
+        {
+            std::cout << "\x1B[31mDESTROYING LINKED LIST AT " << this << "\x1B[0m" << std::endl;
+        }
     };
 }
 
