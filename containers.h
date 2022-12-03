@@ -519,7 +519,7 @@ namespace List
         bool isOutofRange(const int Index) const
         {
             bool indexislessthan0 = Index < 0;
-            bool greaterthansize = Index >= this->getSize();
+            bool greaterthansize = Index >= this->getSize()-1;
             return indexislessthan0 || greaterthansize;
         }
 
@@ -548,6 +548,7 @@ namespace List
         // get data located at a specified index
         std::string getData(const int Index)
         {
+            std::cout << Index;
             if (isOutofRange(Index))
             {
                 return "1x0";
