@@ -365,9 +365,9 @@ namespace List
             Node *Previous;
 
             // setters
-            void setIndex(int Index) { this->Index = Index; }
 
         public:
+            void setIndex(int Index) { this->Index = Index; }
             void setNext(Node *Next) { this->Next = Next; }
 
             void setPrevious(Node *Previous) { this->Previous = Previous; }
@@ -408,27 +408,35 @@ namespace List
             }
 
         public: // constructor
+                // TODO ADD CODE TO AUTOMATICALLY SET THE INDEX
             Node(Node *Previous, std::string Data, Node *Next)
             {
                 this->setNext(Next);
+                this->setIndex(0);
                 // if the next pointer is not null
                 if (Next)
                 {
+                    int new_index = Next->getIndex() + 1;
                     // go to the next pointer and set the previous to this
                     this->getNext()->setPrevious(this);
+                    this->setIndex(new_index);
                 }
                 this->setPrevious(Previous);
                 // if the previous pointer is not null
                 if (Previous)
                 {
+                    int new_index = Previous->getIndex() - 1;
                     // go to the previous pointer and set the next to this
                     this->getPrevious()->setNext(this);
+                    this->setIndex(new_index);
+                    // this->setNext(this->getNext()->getIndex()+1);
                 }
                 this->setData(std::move(Data));
                 // set the Index of the Node
                 this->initalize_Index();
             }
             // destructor
+            // TODO ADD CODE TO AUTOMATICALLY MODIFY THE INDEX
             ~Node()
             {
                 // if the Next exists set it to Null
