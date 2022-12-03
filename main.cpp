@@ -38,6 +38,5 @@ int main()
     IDEs.append("CLion");
     IDEs.append("PyCharm");
     std::cout << "terminating process..." << std::endl;
-    IDEs.
     return 0;
 }
