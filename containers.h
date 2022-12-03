@@ -358,6 +358,7 @@ namespace List
             int getIndex() const { return this->Index; }
             Node *getNext() const { return this->Next; }
             Node *getPrevious() const { return this->Previous; }
+            std::string getData() const { return this->Data; }
 
         private: // functions
             void initalize_Index()
