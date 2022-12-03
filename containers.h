@@ -351,7 +351,8 @@ namespace List
         void setSize(const int Size) { this->Size = Size; }
         // getters
         Node *getHead() const { return this->Head; }
-        public:
+
+    public:
         Node *getEnd() const
         {
             Node *endpoint = this->getHead();
@@ -382,9 +383,11 @@ namespace List
             // destroy a Node at the end of the list
             if (!this->isEmpty())
             {
-                Node* endpoint = this->getHead();
-                //set next and previous pointer to the end 
-                
+                Node *endpoint = this->getHead();
+                // set next and previous pointer to null before delete
+                if (endpoint->getPrev()) { endpoint->setPrev(nullptr); }
+                if (endpoint->getNext()) { endpoint->setNext(nullptr); }
+                delete endpoint;
             }
         }
         // constructor
