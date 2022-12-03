@@ -414,15 +414,15 @@ namespace List
                 Node* cur_Previous = this->getPrevious();
                 if (cur_Next)
                 {
-                    this->getNext()->recursive_index_set(new_index + 1);
                     std::cout << "CALLING NEXT FROM " << this->getData() << " TO " << this->getNext()->getData() << std::endl;
+                    this->getNext()->recursive_index_set(new_index + 1);
                 } else {
                     std::cout << "THERE IS NO NEXT NODE AT " << this->getData() << " TO GO TO" << std::endl;
                 }
                 if (cur_Previous)
                 {
-                    this->getPrevious()->recursive_index_set(new_index - 1);
                     std::cout << "CALLING PREVIOUS FROM " << this->getData() << " TO " << this->getPrevious()->getData() << std::endl;
+                    this->getPrevious()->recursive_index_set(new_index - 1);
                 } else {
                     std::cout << "THERE IS NO PREVIOUS NODE AT " << this->getData() << " TO GO TO" << std::endl;
                 }
