@@ -37,7 +37,7 @@ int main()
     IDEs.append("Visual Studio Code");
     IDEs.append("Visual Studio");
     IDEs.append("CLion");
-    
+
     std::cout << "terminating process..." << std::endl;
     return 0;
 }
