@@ -460,7 +460,7 @@ namespace List
                 }
                 this->setData(std::move(Data));
                 // set the Index of the Node
-                this->recursive_index_set(this->getIndex());
+                //!this->recursive_index_set(this->getIndex());
                 /// this->initalize_Index();
             }
             // destructor
