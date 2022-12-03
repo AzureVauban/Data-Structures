@@ -553,10 +553,9 @@ namespace List
             {
                 return "1x0";
             }
-            else
-            {
-                return "0x0";
-            }
+            //traverse to the Node with the same number as the index paramter
+            Node* current = this->getHead();
+            
         }
 
         // reverse the Nodes of the linked List
