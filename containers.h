@@ -473,13 +473,13 @@ namespace List
             {
                 // traverse to the end while incrementing
                 List::Node *current = this->getHead();
-                while (current)
+                while (current->getNext())
                 {
                     current = current->getNext();
                     new_size += 1;
                 }
             }
-            this->Size = new_size;
+            this->Size = new_size+1;
         }
 
     public:
