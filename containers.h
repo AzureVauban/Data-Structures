@@ -466,6 +466,7 @@ namespace List {
             } else {
                 this->Size = 0;
             }
+            std::cout << 'j' << std::endl;
         }
 
     public:
