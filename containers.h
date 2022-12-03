@@ -406,16 +406,18 @@ namespace List
                     this->setIndex(indicies[0]);
                 }
             }
-public:
-void recursive_index_set(const int new_index)
-{
-if (this->getNext()) {
 
-}
-if (this->getPrevious()){
-    
-}
-}
+        public:
+            void recursive_index_set(const int new_index)
+            {
+                if (this->getNext())
+                {
+                }
+                if (this->getPrevious())
+                {
+                }
+            }
+
         public: // constructor
                 // TODO ADD CODE TO AUTOMATICALLY SET THE INDEX
             Node(Node *Previous, std::string Data, Node *Next)
