@@ -348,7 +348,11 @@ namespace List
         int Size;
         // setters
         void setHead(Node *head) { this->Head = head; }
-        void setSize(const int Size) { this->Size = Size; }
+        void setSize(const int Size) {
+            //get the head of the list
+            //traverse upward until the pointer is null
+            
+        }
         // getters
         Node *getHead() const { return this->Head; }
 
