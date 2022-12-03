@@ -460,7 +460,7 @@ namespace List
                 }
                 this->setData(std::move(Data));
                 // set the Index of the Node
-                //!this->recursive_index_set(this->getIndex());
+                //! this->recursive_index_set(this->getIndex());
                 /// this->initalize_Index();
             }
             // destructor
@@ -516,7 +516,12 @@ namespace List
     private: // functions
         // TODO MAKE THIS TEMPORARILY PUBLIC
         // if index is less than 0 or greater than the current size of the linked list instance
-        bool isOutofRange(const int Index) const { return Index > 0 && Index <= this->getSize() - 1; }
+        bool isOutofRange(const int Index) const { 
+            int end = this->getSize()-1;
+            bool indexislessthan0 = Index < 0;
+            bool 
+            return 
+            }
 
     public:
         // returns true if the head pointer is null
