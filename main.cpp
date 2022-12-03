@@ -1,5 +1,5 @@
 #include "containers.h"
-int main()
+void queue_demo()
 {
     // queue demo
     Queue::Queue Playlist;
@@ -15,11 +15,19 @@ int main()
         std::cout << Playlist.getData() << std::endl;
         Playlist.dequeue();
     }
+    // empty() test
     Queue::Queue New_Playlist;
     for (int i = 0; i < 5; i++)
     {
         New_Playlist.enqueue("UNKNOWN ARTIST - TOP SECRET SONG");
+        Playlist.enqueue("UNKNOWN ARTIST - TOP SECRET SONG");
     }
     New_Playlist.empty();
+    //! add a debug point here and see the queues in debug =)
+    Playlist.~Queue();
+}
+int main()
+{
+    queue_demo();
     return 0;
 }

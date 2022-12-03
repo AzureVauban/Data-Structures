@@ -329,3 +329,11 @@ namespace Queue
         }
     };
 }
+namespace List{
+    //Linked List class
+    class List {
+        // TODO ADD INTIALIZATION (inital size, inital data)
+
+    }
+}
+// end of containers.h
