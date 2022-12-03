@@ -446,6 +446,8 @@ namespace List
                 List::Node *new_Node = new List::Node(this->getEnd(), std::move(Data), nullptr);
                 // endpoint->setNext(new_Node);
             }
+            // peak for debug purposes only
+            this->getEnd()->getData();
             // update the size accordingly
             setSize();
         }
