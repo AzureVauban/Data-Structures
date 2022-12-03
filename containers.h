@@ -376,7 +376,7 @@ namespace List
             void setData(std::string Data) { this->Data = std::move(Data); }
 
         public: // getters
-            int getIndex() const { return this->Index; }
+            const int& getIndex() const { return this->Index; }
 
             Node *getNext() const { return this->Next; }
 
