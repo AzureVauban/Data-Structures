@@ -355,6 +355,15 @@ namespace List
     public:
         // functions
         bool isEmpty() const { return this->getHead() == nullptr; }
+        void append(const std::string Data) {
+            //append a new Node to the end of the list
+            if (this->isEmpty())
+            {
+                Head->
+            } else {
+
+            }
+        }
         // constructor
         explicit List()
         {
