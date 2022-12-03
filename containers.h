@@ -397,6 +397,8 @@ namespace List {
                     this->getPrevious()->setNext(nullptr);
                     this->setPrevious(nullptr);
                 }
+                delete this->getPrevious();
+                delete this->getNext();
                 std::cout << "DESTROYED NODE AT " << this << std::endl;
             }
         };
