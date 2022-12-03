@@ -15,7 +15,7 @@ int main()
         std::cout << Playlist.getData() << std::endl;
         Playlist.dequeue();
     }
-    //test queue empty()
+    // test queue empty()
     Queue::Queue New_Playlist;
     for (int i = 0; i < 5; i++)
     {
