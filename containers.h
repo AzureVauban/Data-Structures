@@ -478,8 +478,10 @@ namespace List
                     current = current->getNext();
                     new_size += 1;
                 }
-            }
             this->Size = new_size+1;
+            } else {
+            this->Size = 0;
+            }
         }
 
     public:
