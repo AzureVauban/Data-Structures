@@ -412,10 +412,11 @@ namespace List
             {
                 if (this->getNext())
                 {
-                    
+                    this->getNext()->recursive_index_set(new_index+1);
                 }
                 if (this->getPrevious())
                 {
+                    this->getPrevious()->recursive_index_set(new_index-1);
                 }
             }
 
@@ -445,6 +446,7 @@ namespace List
                 }
                 this->setData(std::move(Data));
                 // set the Index of the Node
+                this->recursive_index_set(this->getIndex());
                 /// this->initalize_Index();
             }
             // destructor
