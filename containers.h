@@ -407,7 +407,10 @@ namespace List
                 }
             }
 public:
-void recursive
+void recursive_index_set(const int new_index)
+{
+
+}
         public: // constructor
                 // TODO ADD CODE TO AUTOMATICALLY SET THE INDEX
             Node(Node *Previous, std::string Data, Node *Next)
