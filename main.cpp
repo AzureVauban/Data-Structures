@@ -32,11 +32,11 @@ void queue_demo()
 int main()
 {
     // queue_demo();
+
     List::List IDEs;
     IDEs.append("Visual Studio Code");
     IDEs.append("Visual Studio");
     IDEs.append("CLion");
-    IDEs.append("PyCharm");
     std::cout << "terminating process..." << std::endl;
     return 0;
 }
