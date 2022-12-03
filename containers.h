@@ -517,10 +517,9 @@ namespace List
         // TODO MAKE THIS TEMPORARILY PUBLIC
         // if index is less than 0 or greater than the current size of the linked list instance
         bool isOutofRange(const int Index) const { 
-            int end = this->getSize()-1;
             bool indexislessthan0 = Index < 0;
-            bool 
-            return 
+            bool greaterthansize = Index >= this->getSize();
+            return indexislessthan0 || greaterthansize;
             }
 
     public:
