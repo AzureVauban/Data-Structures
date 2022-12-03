@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-class Node {
+class Node
+{
     // Base for Stack, Queue, and Linked List
     Node *Next;
     Node *Prev;
@@ -29,30 +30,39 @@ public:
     std::string getData() const { return this->Data; }
 
     // constructor
-    explicit Node(Node *prev = nullptr, std::string Data = "0x0", Node *next = nullptr) {
+    explicit Node(Node *prev = nullptr, std::string Data = "0x0", Node *next = nullptr)
+    {
         this->setPrev(prev);
         this->setData(std::move(Data));
         this->setNext(next);
-        if (this->getPrev()) {
+        if (this->getPrev())
+        {
             // if there is a Prev pointer
             this->setIndex(this->getPrev()->getIndex() + 1);
-        } else if (this->getNext()) {
+        }
+        else if (this->getNext())
+        {
             // if there is a Next pointer
             this->setIndex(this->getNext()->getIndex() - 1);
-        } else {
+        }
+        else
+        {
             // if the Next and the Prev is null, set the index to 0
             this->setIndex(0);
         }
     }
 
     // destructor
-    ~Node() {
+    ~Node()
+    {
         // std::cout << "Destroyed Node with index " << this->getIndex() << " located at " << this << std::endl;*/
-        if (this->getNext()) {
+        if (this->getNext())
+        {
             this->setNext(nullptr);
             delete this->getNext();
         }
-        if (this->getPrev()) {
+        if (this->getPrev())
+        {
             this->setPrev(nullptr);
             delete this->getPrev();
         }
@@ -185,7 +195,8 @@ namespace Stack
     };
 }
 */
-namespace Queue {
+namespace Queue
+{
     // use for "first in, first out" approach to handling data
     class Queue // TODO ADD INTIALIZATION (inital size, inital data)
     {
@@ -197,12 +208,14 @@ namespace Queue {
         // setters
         void setFront(Node *Front) { this->Front = Front; }
 
-        void setSize() {
+        void setSize()
+        {
             /// set the size of the Queue
 
             int new_size = 0;
             Node *current = getFront();
-            while (current) {
+            while (current)
+            {
                 // traverse to the back of the Queue
                 new_size += 1;
                 current = current->getPrev();
@@ -211,31 +224,37 @@ namespace Queue {
         }
 
         // getters
-        Node *getFront() const {
+        Node *getFront() const
+        {
             return this->Front;
         }
 
     public:
         // return the current size of the Queue
-        int getSize() const {
+        int getSize() const
+        {
             return this->Size;
         }
         // functions
     private:
-        Node *getBack() const {
+        Node *getBack() const
+        {
             Node *current = this->getFront();
 
-            while (current->getPrev()) {
+            while (current->getPrev())
+            {
                 current = current->getPrev();
             }
             return current;
         }
 
-        void checkIndex() {
+        void checkIndex()
+        {
             // use this function to set the Index to the correct int when enqueuing or dequeue
             Node *current = this->getFront();
             int new_index = 0;
-            while (current) {
+            while (current)
+            {
                 current->setIndex(new_index);
                 current = current->getPrev();
                 new_index += 1;
@@ -247,16 +266,20 @@ namespace Queue {
 
         bool isEmpty() const { return this->getFront() == nullptr; }
 
-        void enqueue(const std::string Data) {
+        void enqueue(const std::string Data)
+        {
             // PREV,DATA,NEXT
-            if (this->isEmpty()) {
+            if (this->isEmpty())
+            {
                 Node *front = this->getFront();
                 this->setFront(new Node(nullptr, std::move(Data), nullptr));
                 /*
                 OLD STATE: FRONT = 0
                 NEW STATE: FRONT = (NO PREV, 0, NO NEXT)
                 */
-            } else {
+            }
+            else
+            {
                 /*
                 OLD STATE: FRONT = (NO PREV, 0, NO NEXT)
                 NEW STATE: FRONT = (NO PREV, 0, NEXT)
@@ -273,7 +296,8 @@ namespace Queue {
             this->setSize();
         }
 
-        void dequeue() {
+        void dequeue()
+        {
             /*
             old_front, new_front
             the new_front is the previous pointer of the old_front
@@ -282,11 +306,16 @@ namespace Queue {
             deallocate the old_front pointer
             set front to the new front pointer
             */
-            if (this->isEmpty()) {
+            if (this->isEmpty())
+            {
                 std::cout << "\x1B[31mTHERE ARE NO OBJECTS TO DEQUEUE\x1B[0m" << std::endl;
-            } else if (this->getFront() == this->getBack()) {
+            }
+            else if (this->getFront() == this->getBack())
+            {
                 this->setFront(nullptr);
-            } else {
+            }
+            else
+            {
                 Node *old_front = this->getFront();
                 Node *new_front = old_front->getPrev();
                 old_front->setPrev(nullptr);
@@ -300,29 +329,36 @@ namespace Queue {
             this->setSize();
         }
 
-        void empty() {
-            while (this->getFront()) {
+        void empty()
+        {
+            while (this->getFront())
+            {
                 this->dequeue();
             }
             delete this->getFront();
         }
 
         // constructor
-        Queue() {
+        Queue()
+        {
             this->setFront(nullptr);
             this->setSize();
         }
 
-        ~Queue() {
+        ~Queue()
+        {
             empty();
         }
     };
 }
-namespace List {
+namespace List
+{
     // Linked List class
-    class List {
+    class List
+    {
         // custom class Node class for Linked List
-        class Node {
+        class Node
+        {
             int Index;
             Node *Next;
             std::string Data;
@@ -349,33 +385,42 @@ namespace List {
             std::string getData() const { return this->Data; }
 
         private: // functions
-            void initalize_Index() {
+            void initalize_Index()
+            {
                 int indicies[2] = {0, 0};
-                if (this->getPrevious()) {
+                if (this->getPrevious())
+                {
                     indicies[0] = Previous->getIndex() - 1;
                 }
-                if (this->getNext()) {
+                if (this->getNext())
+                {
                     indicies[1] = Next->getIndex() + 1;
                 }
                 // set index to the greatest number
-                if (indicies[1] > indicies[0]) {
+                if (indicies[1] > indicies[0])
+                {
                     this->setIndex(indicies[1]);
-                } else {
+                }
+                else
+                {
                     this->setIndex(indicies[0]);
                 }
             }
 
         public: // constructor
-            Node(Node *Previous, std::string Data, Node *Next) {
+            Node(Node *Previous, std::string Data, Node *Next)
+            {
                 this->setNext(Next);
                 // if the next pointer is not null
-                if (Next) {
+                if (Next)
+                {
                     // go to the next pointer and set the previous to this
                     this->getNext()->setPrevious(this);
                 }
                 this->setPrevious(Previous);
                 // if the previous pointer is not null
-                if (Previous) {
+                if (Previous)
+                {
                     // go to the previous pointer and set the next to this
                     this->getPrevious()->setNext(this);
                 }
@@ -383,22 +428,25 @@ namespace List {
                 // set the Index of the Node
                 this->initalize_Index();
             }
-            //destructor
-            ~Node() {
-                //if the Next exists set it to Null
-                if (this->getNext()) {
-                    //if next is not nullptr has a previous
+            // destructor
+            ~Node()
+            {
+                // if the Next exists set it to Null
+                if (this->getNext())
+                {
+                    // if next is not nullptr has a previous
                     this->getNext()->setPrevious(nullptr);
                     this->setNext(nullptr);
                 }
-                //if the Previous exists set it to Null
-                if (this->getPrevious()) {
-                    //if previous is not nullptr has a next
+                // if the Previous exists set it to Null
+                if (this->getPrevious())
+                {
+                    // if previous is not nullptr has a next
                     this->getPrevious()->setNext(nullptr);
                     this->setPrevious(nullptr);
                 }
-                delete this->getPrevious();
-                delete this->getNext();
+                delete this->Next;
+                delete this->Previous;
                 std::cout << "DESTROYED NODE AT " << this << std::endl;
             }
         };
@@ -415,10 +463,12 @@ namespace List {
 
         List::Node *getHead() const { return this->head; }
 
-        List::Node *getEnd() const {
+        List::Node *getEnd() const
+        {
             List::Node *current = this->getHead();
             // traverse to the end of the list
-            while (current->getNext()) {
+            while (current->getNext())
+            {
                 current = current->getNext();
             }
             return current;
@@ -429,11 +479,15 @@ namespace List {
         bool isEmpty() const { return this->head == nullptr; }
 
         // append to the end of the linked list
-        void append(std::string Data) {
+        void append(std::string Data)
+        {
             // PREVIOUS, DATA, NEXT
-            if (this->isEmpty()) {
+            if (this->isEmpty())
+            {
                 this->setHead(new List::Node(nullptr, std::move(Data), nullptr));
-            } else {
+            }
+            else
+            {
                 // List::Node *endpoint = this->getEnd();
                 //  make a new node with the endpoint as the previous pointer
                 List::Node *new_Node = new List::Node(this->getEnd(), std::move(Data), nullptr);
@@ -444,29 +498,38 @@ namespace List {
         }
 
         // destroy a node at the end of the list
-        void pop() {
-            if (this->isEmpty()) {
+        void pop()
+        {
+            if (this->isEmpty())
+            {
                 std::cout << "THE LINKED LIST IS EMPTY" << std::endl;
-            } else {
-                //get the end pointer of the List
-                delete this->getEnd();
+            }
+            else
+            {
+                // get the end pointer of the List
+                this->getEnd()->~Node();
             }
             // update the size accordingly
             setSize();
         }
 
     private:
-        void setSize() {
+        void setSize()
+        {
             int new_size = 0;
-            if (!isEmpty()) {
+            if (!isEmpty())
+            {
                 // traverse to the end while incrementing
                 List::Node *current = this->getHead();
-                while (current->getNext()) {
+                while (current->getNext())
+                {
                     current = current->getNext();
                     new_size += 1;
                 }
                 this->Size = new_size + 1;
-            } else {
+            }
+            else
+            {
                 this->Size = 0;
                 return;
             }
@@ -475,18 +538,23 @@ namespace List {
     public:
         // constructor
 
-        explicit List() {
+        explicit List()
+        {
             this->setHead(nullptr);
             this->setSize();
         }
 
         // destructor
-        ~List() {
-            //while the endpoint and the head node are not the same
-            while(this->getEnd() != this->getHead()){ this->pop(); }
-            delete this->getHead();
-            std::cout << "DESTROYING LINKED LIST AT " << this  << std::endl;
+        ~List()
+        {
+            // while the endpoint and the head node are not the same
+            while (this->getEnd() != this->getHead())
+            {
+                this->pop();
+            }
             this->Size = 0;
+            delete this->head;
+            std::cout << "DESTROYING LINKED LIST AT " << this << std::endl;
         }
     };
 }
