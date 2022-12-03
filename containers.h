@@ -409,7 +409,12 @@ namespace List
 public:
 void recursive_index_set(const int new_index)
 {
+if (this->getNext()) {
 
+}
+if (this->getPrevious()){
+    
+}
 }
         public: // constructor
                 // TODO ADD CODE TO AUTOMATICALLY SET THE INDEX
