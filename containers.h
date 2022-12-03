@@ -433,7 +433,7 @@ namespace List
                 }
                 this->setData(std::move(Data));
                 // set the Index of the Node
-               /// this->initalize_Index();
+                /// this->initalize_Index();
             }
             // destructor
             // TODO ADD CODE TO AUTOMATICALLY MODIFY THE INDEX
