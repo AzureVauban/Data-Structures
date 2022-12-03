@@ -348,13 +348,15 @@ namespace List
         int Size;
         // setters
         void setHead(Node *head) { this->Head = head; }
-        void setSize(const int Size) {
-            //get the head of the list
-            //traverse upward until the pointer is null
-            Node* current = this->getHead();
+        void setSize()
+        {
+            // get the head of the list
+            // traverse upward until the pointer is null
+            Node *current = this->getHead();
             int new_size = 0;
-            while (current){
-                new_size+=1;
+            while (current)
+            {
+                new_size += 1;
                 current = current->getNext();
             }
             this->Size = new_size;
@@ -387,6 +389,8 @@ namespace List
             {
                 this->setHead(new Node(nullptr, std::move(Data), nullptr));
             }
+            // update the Size
+            this->setSize();
         }
         void pop()
         {
@@ -395,16 +399,24 @@ namespace List
             {
                 Node *endpoint = this->getHead();
                 // set next and previous pointer to null before delete
-                if (endpoint->getPrev()) { endpoint->setPrev(nullptr); }
-                if (endpoint->getNext()) { endpoint->setNext(nullptr); }
+                if (endpoint->getPrev())
+                {
+                    endpoint->setPrev(nullptr);
+                }
+                if (endpoint->getNext())
+                {
+                    endpoint->setNext(nullptr);
+                }
                 delete endpoint;
             }
+            // update the Size
+            this->setSize();
         }
         // constructor
         explicit List()
         {
             this->setHead(nullptr);
-            this->setSize(0);
+            this->setSize();
         }
         // destructor
         ~List()
