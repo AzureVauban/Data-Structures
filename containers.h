@@ -516,11 +516,12 @@ namespace List
     private: // functions
         // TODO MAKE THIS TEMPORARILY PUBLIC
         // if index is less than 0 or greater than the current size of the linked list instance
-        bool isOutofRange(const int Index) const { 
+        bool isOutofRange(const int Index) const
+        {
             bool indexislessthan0 = Index < 0;
             bool greaterthansize = Index >= this->getSize();
             return indexislessthan0 || greaterthansize;
-            }
+        }
 
     public:
         // returns true if the head pointer is null
@@ -547,7 +548,14 @@ namespace List
         // get data located at a specified index
         std::string getData(const int Index)
         {
-            return "";
+            if (isOutofRange(Index))
+            {
+                return "1x0";
+            }
+            else
+            {
+                return "0x0";
+            }
         }
 
         // reverse the Nodes of the linked List
