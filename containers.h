@@ -382,18 +382,30 @@ namespace List
                 this->initalize_Index();
             }
         };
-        //private class members
-        Node* Head;
-        //setters
-        void setHead(Node* Head ) { this->Head = Head; }
-        //getters
-        //functions
-        public:
-        //constructor
-        explicit List() {
+        // private class members
+
+        Node *Head;
+        // setters
+
+        void setHead(Node *Head) { this->Head = Head; }
+        // getters
+
+    public:
+        // functions
+
+        // returns true if the List is empty
+        bool isEmpty() const { this->Head == nullptr; }
+        // add an item to the end of the list
+        void append()
+        {
+            
+        }
+        // constructor
+        explicit List()
+        {
             this->setHead(nullptr);
         }
-        //destructor
+        // destructor
     };
 }
 
