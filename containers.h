@@ -1,4 +1,5 @@
-#pragma once
+#ifndef B67F6159_40AF_40F6_B9CE_800AD3727E4A
+#define B67F6159_40AF_40F6_B9CE_800AD3727E4A
 
 #include <iostream>
 
@@ -560,3 +561,5 @@ namespace List
 }
 
 // end of containers.h
+
+#endif /* B67F6159_40AF_40F6_B9CE_800AD3727E4A */
