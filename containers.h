@@ -44,7 +44,8 @@ public:
     }
     // destructor
     ~Node()
-    { /*std::cout << "Destroyed Node with index " << this->getIndex() << " located at " << this << std::endl;*/
+    {
+        // std::cout << "Destroyed Node with index " << this->getIndex() << " located at " << this << std::endl;*/
         if (this->getNext())
         {
             this->setNext(nullptr);
@@ -57,6 +58,7 @@ public:
         }
     }
 };
+
 /*
 namespace Stack
 { //?NEEDS TO BE REDONE
@@ -188,6 +190,7 @@ namespace Queue
     // use for "first in, first out" approach to handling data
     class Queue // TODO ADD INTIALIZATION (inital size, inital data)
     {
+
         Node *Front; // next should always be Null
         int Size;
 
@@ -335,77 +338,59 @@ namespace List
     class List
     {
         // custom class Node class for Linked List
-        class Node
+        namespace List_Node
         {
-            int Index;
-            Node *Next;
-            std::string Data;
-            Node *Previous;
-            // setters
-            void setIndex(int Index) { this->Index = Index; }
-            void setNext(Node *Next) { this->Next = Next; }
-            void setPrevious(Node *Previous) { this->Previous = Previous; }
-            void setData(std::string Data) { this->Data = std::move(Data); }
-            // getters
-            int getIndex() const { return this->Index; }
-            Node *getNext() const { return this->Next; }
-            Node *getPrevious() const { return this->Previous; }
-            // functions
-            void initalize_Index()
+            class Node
             {
-                int indicies[2] = {0, 0};
-                if (this->getPrevious())
+                int Index;
+                Node *Next;
+                std::string Data;
+                Node *Previous;
+                // setters
+                void setIndex(int Index) { this->Index = Index; }
+                void setNext(Node *Next) { this->Next = Next; }
+                void setPrevious(Node *Previous) { this->Previous = Previous; }
+                void setData(std::string Data) { this->Data = std::move(Data); }
+                // getters
+                int getIndex() const { return this->Index; }
+                Node *getNext() const { return this->Next; }
+                Node *getPrevious() const { return this->Previous; }
+                // functions
+                void initalize_Index()
                 {
-                    indicies[0] = Previous->getIndex() - 1;
+                    int indicies[2] = {0, 0};
+                    if (this->getPrevious())
+                    {
+                        indicies[0] = Previous->getIndex() - 1;
+                    }
+                    if (this->getNext())
+                    {
+                        indicies[1] = Next->getIndex() + 1;
+                    }
+                    // set index to the greatest number
+                    if (indicies[1] > indicies[0])
+                    {
+                        this->setIndex(indicies[1]);
+                    }
+                    else
+                    {
+                        this->setIndex(indicies[0]);
+                    }
                 }
-                if (this->getNext())
+
+            public:
+                // constructor
+                Node(Node *Next, std::string &Data, Node *Previous)
                 {
-                    indicies[1] = Next->getIndex() + 1;
+                    this->setNext(Next);
+                    this->setPrevious(Previous);
+                    this->setData(std::move(Data));
+                    // set the Index of the Node
+                    this->initalize_Index();
                 }
-                // set index to the greatest number
-                if (indicies[1] > indicies[0])
-                {
-                    this->setIndex(indicies[1]);
-                }
-                else
-                {
-                    this->setIndex(indicies[0]);
-                }
-            }
-            // constructor
-            Node(Node *Next, std::string &Data, Node *Previous)
-            {
-                this->setNext(Next);
-                this->setPrevious(Previous);
-                this->setData(std::move(Data));
-                // set the Index of the Node
-                this->initalize_Index();
-            }
-        };
+            };
+        }
         // private class members
-
-        Node *Head;
-        // setters
-
-        void setHead(Node *Head) { this->Head = Head; }
-        // getters
-
-    public:
-        // functions
-
-        // returns true if the List is empty
-        bool isEmpty() const { this->Head == nullptr; }
-        // add an item to the end of the list
-        void append()
-        {
-            
-        }
-        // constructor
-        explicit List()
-        {
-            this->setHead(nullptr);
-        }
-        // destructor
     };
 }
 
