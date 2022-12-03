@@ -410,13 +410,21 @@ namespace List
         public:
             void recursive_index_set(const int new_index)
             {
-                if (this->getNext())
+                Node *cur_Next = this->getNext();
+                Node* cur_Previous = this->getPrevious();
+                if (cur_Next)
                 {
                     this->getNext()->recursive_index_set(new_index + 1);
+                    std::cout << "CALLING NEXT FROM " << this->getData() << " TO " << this->getNext()->getData() << std::endl;
+                } else {
+                    std::cout << "THERE IS NO NEXT NODE AT " << this->getData() << " TO GO TO" << std::endl;
                 }
-                if (this->getPrevious())
+                if (cur_Previous)
                 {
                     this->getPrevious()->recursive_index_set(new_index - 1);
+                    std::cout << "CALLING PREVIOUS FROM " << this->getData() << " TO " << this->getPrevious()->getData() << std::endl;
+                } else {
+                    std::cout << "THERE IS NO PREVIOUS NODE AT " << this->getData() << " TO GO TO" << std::endl;
                 }
             }
 
