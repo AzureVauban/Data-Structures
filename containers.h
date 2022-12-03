@@ -349,9 +349,9 @@ namespace List
 
         public:
             void setNext(Node *Next) { this->Next = Next; }
+            void setPrevious(Node *Previous) { this->Previous = Previous; }
 
         private:
-            void setPrevious(Node *Previous) { this->Previous = Previous; }
             void setData(std::string Data) { this->Data = std::move(Data); }
 
         public: // getters
@@ -386,7 +386,19 @@ namespace List
             Node(Node *Previous, std::string Data, Node *Next)
             {
                 this->setNext(Next);
+                // if the next pointer is not null
+                if (Next)
+                {
+                    // go to the next pointer and set the previous to this
+                    this->getNext()->setPrevious(this);
+                }
                 this->setPrevious(Previous);
+                // if the previous pointer is not null
+                if (Previous)
+                {
+                    // go to the previous pointer and set the next to this
+                    this->getPrevious()->setNext(this);
+                }
                 this->setData(std::move(Data));
                 // set the Index of the Node
                 this->initalize_Index();
@@ -408,7 +420,7 @@ namespace List
         {
             List::Node *current = this->getHead();
             // traverse to the end of the list
-            while (current)
+            while (current->getNext())
             {
                 current = current->getNext();
             }
@@ -422,17 +434,16 @@ namespace List
         void append(std::string Data)
         {
             // PREVIOUS, DATA, NEXT
-            List::Node *endpoint = this->getEnd();
             if (this->isEmpty())
             {
                 this->setHead(new List::Node(nullptr, std::move(Data), nullptr));
             }
             else
             {
-                // make a new node with the endpoint as the previous pointer
-                List::Node *new_Node = new List::Node(nullptr, std::move(Data), endpoint);
-                // set the new node as the next pointer on the endpoint node
-                //endpoint->setNext(new_Node);
+                // List::Node *endpoint = this->getEnd();
+                //  make a new node with the endpoint as the previous pointer
+                List::Node *new_Node = new List::Node(this->getEnd(), std::move(Data), nullptr);
+                // endpoint->setNext(new_Node);
             }
             // update the size accordingly
             setSize();
