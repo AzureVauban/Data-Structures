@@ -397,6 +397,7 @@ namespace List {
                     this->getPrevious()->setNext(nullptr);
                     this->setPrevious(nullptr);
                 }
+                std::cout << "DESTROYED NODE AT " << this << std::endl;
             }
         };
 
@@ -465,8 +466,8 @@ namespace List {
                 this->Size = new_size + 1;
             } else {
                 this->Size = 0;
+                return;
             }
-            std::cout << 'j' << std::endl;
         }
 
     public:
@@ -479,7 +480,11 @@ namespace List {
 
         // destructor
         ~List() {
+            //while the endpoint and the head node are not the same
+            while(this->getEnd() != this->getHead()){ this->pop(); }
+            delete this->getHead();
             std::cout << "DESTROYING LINKED LIST AT " << this  << std::endl;
+            this->Size = 0;
         }
     };
 }
