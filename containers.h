@@ -350,8 +350,11 @@ namespace List
         void setHead(Node *head) { this->Head = head; }
         void setSize(const int Size) { this->Size = Size; }
         // getters
+        Node *getHead() const { return this->Head; }
+
     public:
         // functions
+        bool isEmpty() const { return this->getHead() == nullptr; }
         // constructor
         explicit List()
         {
