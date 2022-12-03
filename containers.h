@@ -390,10 +390,15 @@ namespace List
 
         List::Node *head;
         // setters
+
         void setHead(List::Node *Head) { this->head = Head; }
 
+        //getters
+
+        
     public:
         // constructor
+
         explicit List()
         {
             this->setHead(nullptr);
