@@ -416,7 +416,7 @@ namespace List
                 // if the next pointer is not null
                 if (Next)
                 {
-                    int new_index = Next->getIndex() + 1;
+                    int new_index = Next->getIndex() - 1;
                     // go to the next pointer and set the previous to this
                     this->getNext()->setPrevious(this);
                     this->setIndex(new_index);
@@ -425,7 +425,7 @@ namespace List
                 // if the previous pointer is not null
                 if (Previous)
                 {
-                    int new_index = Previous->getIndex() - 1;
+                    int new_index = Previous->getIndex() + 1;
                     // go to the previous pointer and set the next to this
                     this->getPrevious()->setNext(this);
                     this->setIndex(new_index);
