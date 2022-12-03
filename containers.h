@@ -393,12 +393,17 @@ namespace List
             {
                 this;
                 // get the last two Nodes
-                Node *old_endpoint = this->getEnd();          // last Node
-                Node *new_endpoint = old_endpoint->getPrev(); // second to Last
-                old_endpoint->setPrev(nullptr);
-                if (new_endpoint->getNext())
+                Node *old_endpoint = this->getEnd(); // last Node
+                // if the prev node is not null
+                if (old_endpoint->getPrev())
                 {
-                    new_endpoint->setNext(nullptr);
+
+                    Node *new_endpoint = old_endpoint->getPrev(); // second to Last
+                    old_endpoint->setPrev(nullptr);
+                    if (new_endpoint->getNext())
+                    {
+                        new_endpoint->setNext(nullptr);
+                    }
                 }
                 std::cout << "\x1B[32mDESTROYED AN OBJECT AT THE END OF THE LIST\x1B[0m" << std::endl;
                 delete old_endpoint;
