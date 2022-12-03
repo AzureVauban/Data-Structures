@@ -334,96 +334,65 @@ namespace List
     // Linked List class
     class List
     {
-        // TODO ADD INTIALIZATION (inital size, inital data)
-        /*
-        functions
-        - append
-        - insert (append at index)
-        - remove (remove at index)
-        - pop
-        - reverse
-        - size
-        */
-        Node *Head; // prev is always nullptr
-        int Size;
+        Node *head;
+        int size;
         // setters
-        void setHead(Node *head) { this->Head = head; }
-        void setSize()
-        {
-            // get the head of the list
-            // traverse upward until the pointer is null
-            Node *current = this->getHead();
-            int new_size = 0;
-            while (current) // TODO DEBUG THIS FUNCTION - INFINITE LOOP OCCURANCE
-            {
-                new_size += 1;
-                current = current->getNext();
-                std::cout << new_size << ":"
-                          << "s" << std::endl;
-            }
-            this->Size = new_size;
-        }
-        // getters
-        Node *getHead() const { return this->Head; }
 
-    public:
+        void setHead(Node *head) { this->head = head; }
+        // getters
+
+        Node *getHead() const { return this->head; }
         Node *getEnd() const
         {
-            Node *endpoint = this->getHead();
-            // traverse down to the end of the list
-            if (endpoint)
+            Node *current = this->getHead();
+            while (current->getNext())
             {
-                while (endpoint->getPrev())
-                {
-                    endpoint = endpoint->getPrev();
-                }
+                current = current->getNext();
             }
-            return endpoint;
+            return current;
         }
 
     public:
         // functions
-        bool isEmpty() const { return this->getHead() == nullptr; }
-        void append(const std::string Data)
+
+        // see the amount of Nodes in the Linked List instance
+        int getSize() const { return this->size; }
+        // see if the head is null
+        bool isEmpty() const { return this->head == nullptr; }
+        // append to the end of the Linked List
+        void append(const std::string &Data)
         {
-            // append a new Node to the end of the list
+
             if (this->isEmpty())
             {
                 this->setHead(new Node(nullptr, std::move(Data), nullptr));
             }
-            // update the Size
-            this->setSize();
+            else
+            {
+                // get the end of the List
+                Node *endpoint = getEnd();
+                // create a new Node with the endpoint as the previous ptr
+                Node *new_node = new Node(endpoint,std::move(Data),nullptr);
+                // set the new Node to the next Node on the endpoint
+                
+            }
         }
         void pop()
         {
-            // destroy a Node at the end of the list
-            if (!this->isEmpty())
+            if (this->isEmpty())
             {
-                Node *endpoint = this->getHead();
-                // set next and previous pointer to null before delete
-                if (endpoint->getPrev())
-                {
-                    endpoint->setPrev(nullptr);
-                }
-                if (endpoint->getNext())
-                {
-                    endpoint->setNext(nullptr);
-                }
-                delete endpoint;
+                std::cout << "\x1B[31mNO OBJECTS TO POP FROM THE LIST\x1B[0m" << std::endl;
             }
-            // update the Size
-            this->setSize();
         }
         // constructor
         explicit List()
         {
             this->setHead(nullptr);
-            this->setSize();
+            // todo remove this later with the setSize function
+            this->size = 0;
         }
-        // destructor
-        ~List()
-        {
-        }
+        // destructors
     };
 }
+
 // end of containers.h

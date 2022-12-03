@@ -29,17 +29,9 @@ void queue_demo()
 int main()
 {
     // queue_demo();
-    List::List Garage;
-    if (Garage.isEmpty())
-    {
-        std::cout << "There are no cars in the garage!" << std::endl;
-    }
-    else
-    {
-        std::cout << "there's cars in the garage!" << std::endl;
-    }
-    // auto garage_head = Garage.getEnd();
-    Garage.append("Mustang GT");
-    Garage.pop();
+    List::List Groceries;
+    //Groceries.
+    std::cout << Groceries.getSize() << std::endl;
+    Groceries.pop();
     return 0;
 }
