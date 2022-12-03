@@ -358,6 +358,7 @@ namespace List
             {
                 new_size += 1;
                 current = current->getNext();
+                std::cout << new_size << ":" << ""<< std::endl;
             }
             this->Size = new_size;
         }
