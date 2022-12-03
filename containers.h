@@ -194,7 +194,7 @@ namespace Stack
     };
 }
 */
-
+/*
 namespace Queue
 {
     // use for "first in, first out" approach to handling data
@@ -297,14 +297,14 @@ namespace Queue
 
         void dequeue()
         {
-            
-//?            old_front, new_front
-//?            the new_front is the previous pointer of the old_front
-//?            old_front's previous becomes nullptr
-//?            new_front's next becomes nullptr
-//?            deallocate the old_front pointer
-//?            set front to the new front pointer
-            
+
+            //?            old_front, new_front
+            //?            the new_front is the previous pointer of the old_front
+            //?            old_front's previous becomes nullptr
+            //?            new_front's next becomes nullptr
+            //?            deallocate the old_front pointer
+            //?            set front to the new front pointer
+
             if (this->isEmpty())
             {
                 std::cout << "\x1B[31mTHERE ARE NO OBJECTS TO DEQUEUE\x1B[0m" << std::endl;
@@ -350,7 +350,7 @@ namespace Queue
         }
     };
 }
-
+*/
 namespace List
 {
     // Linked List class
@@ -490,11 +490,10 @@ namespace List
             {
                 // List::Node *endpoint = this->getEnd();
                 //  make a new node with the endpoint as the previous pointer
-                List::Node *new_Node = new List::Node(this->getEnd(), std::move(Data), nullptr);
-                // endpoint->setNext(new_Node);
+                new List::Node(this->getEnd(), std::move(Data), nullptr);
             }
             // update the size accordingly
-            setSize();
+            this->setSize();
         }
 
         // destroy a node at the end of the list
@@ -535,9 +534,7 @@ namespace List
             }
         }
 
-    public:
-        // constructor
-
+    public: // constructor
         explicit List()
         {
             this->setHead(nullptr);
