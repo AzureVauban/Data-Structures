@@ -354,9 +354,14 @@ namespace List
         Node *getEnd() const
         {
             Node *endpoint = this->getHead();
-            //traverse downto the end of the list
-            if (endpoint){
-            while (endpoint->getPrev()) {} }
+            // traverse down to the end of the list
+            if (endpoint)
+            {
+                while (endpoint->getPrev())
+                {
+                    endpoint = endpoint->getPrev();
+                }
+            }
             return endpoint;
         }
 
