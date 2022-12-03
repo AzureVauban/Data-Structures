@@ -359,7 +359,7 @@ namespace List
             //append a new Node to the end of the list
             if (this->isEmpty())
             {
-                Head->
+                this->setHead(new Node(nullptr,std::move(Data),nullptr));
             } else {
 
             }
