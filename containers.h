@@ -366,6 +366,7 @@ namespace List
             if (this->isEmpty())
             {
                 this->setHead(new Node(nullptr, std::move(Data), nullptr));
+                std::cout << "\x1B[32mAPPENDED FIRST OBJECT (" << Data << ") AT THE END OF THE LIST\x1B[0m" << std::endl;
             }
             else
             {
@@ -376,14 +377,26 @@ namespace List
                 Node *new_node = new Node(endpoint, std::move(Data), nullptr);
                 // set the new Node to the next Node on the endpoint
                 endpoint->setNext(new_node);
+                std::cout << "\x1B[32mAPPENDED OBJECT (" << Data << ") AT THE END OF THE LIST\x1B[0m" << std::endl;
             }
+            // set the new size of the Linked List
         }
+        // remove a Node from the back of the Linked List
         void pop()
         {
             if (this->isEmpty())
             {
                 std::cout << "\x1B[31mNO OBJECTS TO POP FROM THE LIST\x1B[0m" << std::endl;
             }
+            else
+            {
+                // get the last two Nodes
+                Node *old_endpoint = this->getEnd();          // last Node
+                Node *new_endpoint = old_endpoint->getPrev(); // second to Last
+                //if (new_endpoint->getNext()) { }
+                std::cout << "\x1B[32mDESTROYED AN OBJECT AT THE END OF THE LIST\x1B[0m" << std::endl;
+            }
+            // set the new size of the Linked List
         }
         // constructor
         explicit List()
