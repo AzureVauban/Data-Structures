@@ -349,11 +349,13 @@ namespace List
             void setNext(Node *Next) { this->Next = Next; }
             void setPrevious(Node *Previous) { this->Previous = Previous; }
             void setData(std::string Data) { this->Data = std::move(Data); }
-            // getters
+
+        public: // getters
             int getIndex() const { return this->Index; }
             Node *getNext() const { return this->Next; }
             Node *getPrevious() const { return this->Previous; }
-            // functions
+
+        private: // functions
             void initalize_Index()
             {
                 int indicies[2] = {0, 0};
@@ -376,9 +378,8 @@ namespace List
                 }
             }
 
-        public:
-            // constructor
-            Node(Node *Next, std::string &Data, Node *Previous)
+        public: // constructor
+            Node(Node *Next, std::string Data, Node *Previous)
             {
                 this->setNext(Next);
                 this->setPrevious(Previous);
@@ -388,21 +389,71 @@ namespace List
             }
         };
 
+        // private class members
+
         List::Node *head;
+        int Size;
         // setters
 
         void setHead(List::Node *Head) { this->head = Head; }
 
-        //getters
+        // getters
 
-        
+        List::Node *getHead() const { return this->head; }
+        List::Node *getEnd() const
+        {
+            List::Node *current = this->getHead();
+            // traverse to the end of the list
+            while (current)
+            {
+                current = current->getNext();
+            }
+            return current;
+        }
+
+    public: // functions
+        // returns true if the head pointer is null
+        bool isEmpty() const { return this->head == nullptr; }
+        // append to the end of the linked list
+        void append(std::string Data)
+        {
+            List::Node *endpoint = this->getEnd();
+            if (this->isEmpty())
+            {
+                this->setHead(new List::Node(nullptr, std::move(Data), nullptr));
+            }
+            // update the size accordingly
+            setSize();
+        }
+
+    private:
+        void setSize()
+        {
+            int new_size = 0;
+            if (!isEmpty())
+            {
+                // traverse to the end while incrementing
+                List::Node *current = this->getHead();
+                while (current)
+                {
+                    current = current->getNext();
+                    new_size += 1;
+                }
+            }
+            this->Size = new_size;
+        }
+
     public:
         // constructor
 
         explicit List()
         {
             this->setHead(nullptr);
+            this->setSize();
         }
+
+        // destructor
+        ~List() { delete this->getHead(); }
     };
 }
 

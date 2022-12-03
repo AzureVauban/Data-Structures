@@ -31,6 +31,6 @@ int main()
     // queue_demo();
     // Linked List of Groceries!
     List::List Groceries;
-    // Groceries.
+    Groceries.append("Apples");
     return 0;
 }
