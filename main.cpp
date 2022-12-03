@@ -29,8 +29,8 @@ void queue_demo()
 int main()
 {
     // queue_demo();
-    // Linked List of Groceries!
-    List::List Groceries;
-    Groceries.append("Apples");
+    List::List Tasks;
+    Tasks.append("Look very cute.");
+    Tasks.append("Call Boyfriend.");
     return 0;
 }

@@ -346,7 +346,11 @@ namespace List
             Node *Previous;
             // setters
             void setIndex(int Index) { this->Index = Index; }
+
+        public:
             void setNext(Node *Next) { this->Next = Next; }
+
+        private:
             void setPrevious(Node *Previous) { this->Previous = Previous; }
             void setData(std::string Data) { this->Data = std::move(Data); }
 
@@ -379,7 +383,7 @@ namespace List
             }
 
         public: // constructor
-            Node(Node *Next, std::string Data, Node *Previous)
+            Node(Node *Previous, std::string Data, Node *Next)
             {
                 this->setNext(Next);
                 this->setPrevious(Previous);
@@ -417,10 +421,18 @@ namespace List
         // append to the end of the linked list
         void append(std::string Data)
         {
+            // PREVIOUS, DATA, NEXT
             List::Node *endpoint = this->getEnd();
             if (this->isEmpty())
             {
                 this->setHead(new List::Node(nullptr, std::move(Data), nullptr));
+            }
+            else
+            {
+                // make a new node with the endpoint as the previous pointer
+                List::Node *new_Node = new List::Node(nullptr, std::move(Data), endpoint);
+                // set the new node as the next pointer on the endpoint node
+                //endpoint->setNext(new_Node);
             }
             // update the size accordingly
             setSize();
