@@ -334,90 +334,31 @@ namespace List
     // Linked List class
     class List
     {
-        Node *head;
-        int size;
-        // setters
-
-        void setHead(Node *head) { this->head = head; }
-        // getters
-
-        Node *getHead() const { return this->head; }
-        Node *getEnd() const
+        // custom class Node class for Linked List
+        class Node
         {
-            Node *current = this->getHead();
-            while (current->getNext())
-            {
-                current = current->getNext();
+            int Index;
+            Node *Next;
+            std::string Data;
+            Node *Previous;
+            // setters
+            void setIndex(const int Index) { this->Index = Index; }
+            void setNext(Node *Next) { this->Next = Next; }
+            void setPrevious(Node *Previous) { this->Previous = Previous; }
+            void setData(std::string Data) { this->Data = std::move(Data); }
+            // getters
+            int getIndex() const { return this->Index; }
+            Node* getNext() const { return this->Next; }
+            Node* getPrevious() const { return this->Previous; }
+            //constructor
+            Node(Node* Next, std::string &Data, Node* Previous) {
+                this->setNext(Next);
+                this->setPrevious(Previous);
+                this->setData(std::move(Data));
+                //set the Index of the Node
+                if ()
             }
-            return current;
-        }
-
-    public:
-        // functions
-
-        // see the amount of Nodes in the Linked List instance
-        int getSize() const { return this->size; }
-        // see if the head is null
-        bool isEmpty() const { return this->head == nullptr; }
-        // append to the end of the Linked List
-        void append(const std::string &Data)
-        {
-
-            if (this->isEmpty())
-            {
-                this->setHead(new Node(nullptr, std::move(Data), nullptr));
-                std::cout << "\x1B[32mAPPENDED FIRST OBJECT (" << Data << ") AT THE END OF THE LIST\x1B[0m" << std::endl;
-            }
-            else
-            {
-                /*PREV,DATA,NEXT*/
-                // get the end of the List
-                Node *endpoint = getEnd();
-                // create a new Node with the endpoint as the previous ptr
-                Node *new_node = new Node(endpoint, std::move(Data), nullptr);
-                // set the new Node to the next Node on the endpoint
-                endpoint->setNext(new_node);
-                std::cout << "\x1B[32mAPPENDED OBJECT (" << Data << ") AT THE END OF THE LIST\x1B[0m" << std::endl;
-                this;
-            }
-            // set the new size of the Linked List
-        }
-        // remove a Node from the back of the Linked List
-        void pop()
-        {
-            if (this->isEmpty())
-            {
-                std::cout << "\x1B[31mNO OBJECTS TO POP FROM THE LIST\x1B[0m" << std::endl;
-            }
-            else
-            {
-                this;
-                // get the last two Nodes
-                Node *old_endpoint = this->getEnd(); // last Node
-                // if the prev node is not null
-                if (old_endpoint->getPrev())
-                {
-
-                    Node *new_endpoint = old_endpoint->getPrev(); // second to Last
-                    old_endpoint->setPrev(nullptr);
-                    if (new_endpoint->getNext())
-                    {
-                        new_endpoint->setNext(nullptr);
-                    }
-                }
-                std::cout << "\x1B[32mDESTROYED AN OBJECT AT THE END OF THE LIST\x1B[0m" << std::endl;
-                delete old_endpoint;
-            }
-            // set the new size of the Linked List
-        }
-        // constructor
-        explicit List()
-        {
-            this->setHead(nullptr);
-            // todo remove this later with the setSize function
-            this->size = 0;
-        }
-        // destructors
+        };
     };
 }
 
