@@ -369,12 +369,13 @@ namespace List
             }
             else
             {
+                /*PREV,DATA,NEXT*/
                 // get the end of the List
                 Node *endpoint = getEnd();
                 // create a new Node with the endpoint as the previous ptr
-                Node *new_node = new Node(endpoint,std::move(Data),nullptr);
+                Node *new_node = new Node(endpoint, std::move(Data), nullptr);
                 // set the new Node to the next Node on the endpoint
-                
+                endpoint->setNext(new_node);
             }
         }
         void pop()
