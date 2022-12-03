@@ -460,7 +460,6 @@ namespace List
             }
             else
             {
-
             }
             // update the size accordingly
             setSize();
