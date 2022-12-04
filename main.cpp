@@ -41,7 +41,18 @@ int main()
     IDEs.append("Replit");
     IDEs.append("Pycharm");
     IDEs.append("Vim");
-    for (int i = -1; i <= IDEs.getSize(); i++)
+    // print list
+    const int listsize = IDEs.getSize();
+    for (int i = -1; i <= listsize; i++)
+    {
+        std::cout << IDEs.getData(i) << std::endl;
+    }
+    for (int i = 0; i != listsize * 2; i++)
+    {
+        IDEs.pop();
+    }
+    // print list
+    for (int i = -1; i <= listsize; i++)
     {
         std::cout << IDEs.getData(i) << std::endl;
     }

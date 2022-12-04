@@ -575,7 +575,7 @@ namespace List
         //  destroy a node at the end of the list
         void pop()
         {
-            if (this->isEmpty())
+            if (this->isEmpty() || this->getHead() == 0x0)
             {
                 std::cout << "THE LINKED LIST IS EMPTY" << std::endl;
             }
