@@ -33,12 +33,30 @@ namespace List
         };
 // end of Node definition
         Node* head;
+        int size;
 //setters
     void setHead(Node* head) { this->head = head; }
+    void setSize(){
+        if (!this->getHead()){
+            this->size = 0;
+        } else if (this->getHead() == this->getEnd() && this->getHead())
+        {
+            this->size = 1;
+        } else {
+            Node* current = this->getHead();
+            int new_size = 0;
+            while (current)
+            {
+                current = current->getNext();
+                new_size+=1;
+            }
+            this->size = new_size;
+        }
+    }
 //getters
 
 //returns the head Node if the linked list class
-    Node* getHead() const { this->head; }
+    Node* getHead() const { return this->head; }
 //functions
 private:
 // returns the Node at the end of the list
