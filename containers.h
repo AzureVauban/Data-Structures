@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
-
+/*
+- Queue "Uses the FIFO (first-in, first-out) ordering principle"
+- Stack "Uses the LIFO (last-in, first-out) ordering principle"
+- Linked List "A data structure that contains a group of nodes which together represent a sequence"
+*/
 class Node
 {
     // Base for Stack, Queue, and Linked List
