@@ -9,16 +9,26 @@ namespace List
 {
     class Node
     {
-    public:
+   
         /* functionality:
         - automatically link node instances to one another when instantiated
         - automatically set the index of all connected nodes instances when instantiated
         */
-    Node* Next;
-    Node* Previous;
-    int Index;
-    std::string Data;
-    //setters
+        Node *Next;
+        Node *Previous;
+        int Index;
+        std::string Data;
+    public:
+        // setters
+        void setNext(Node *next) { Next = next; }
+        void setPrevious(Node *previous) { Previous = previous; }
+        void setIndex(int index) { Index = index; }
+        void setData(std::string data) { Data = data; }
+        // getters
+        Node *getNext() const { return Next; }
+        Node *getPrevious() const { return Previous; }
+        const int getIndex() const { return Index; }
+        std::string getData() const { return Data; }
     }; // TODO TEST OUT NODE CLASS FIRST
 }
 // end of containers.h
