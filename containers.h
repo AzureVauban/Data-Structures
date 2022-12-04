@@ -15,20 +15,44 @@ namespace List
             Node *Next;
             Node *Previous;
 //setters            
-            void setIndex(int Index) { this->Index = Index; }
+            //void setIndex(int Index) { this->Index = Index; }
             void setNext(Node *Next) { this->Next = Next; }
             void setPrevious(Node *Previous) { this->Previous = Previous; }
 //getters
-            int getIndex() const { return this->Index; }
-            Node *getNext() const { return this->Next; }
-            Node *getPrevious() const { return this->Previous; }
+            const int &getIndex() const { return this->Index; }
+            const Node *getNext() const { return this->Next; }
+            const Node *getPrevious() const { return this->Previous; }
             //const std::string &getData() const { return this->Data; }
 //constructor
-            explicit (Node* Next, Node* Previous) {
-                
+            explicit Node(Node* Previous, Node* Next){
+                this->setPrevious(Previous);
+                this->setNext(Next);
             }
         };
-        Node *head;
+// end of Node definition
+        Node* head;
+//setters
+    void setHead(Node* head) { this->head = head; }
+//getters
+//returns the head Node if the linked list class
+    Node* getHead() const { this->head; }
+//functions
+private:
+// returns the Node at the end of the list
+    const Node* getEnd() {
+        Node * current = this->getHead();
+    }
+public:
+// returns true if the head node is null
+    const bool isEmpty() { return this->head == nullptr; }
+// appends an item do the end of the linked List
+    
+public:
+//constructor
+        explicit List(){
+            this->setHead(nullptr);
+        }
     };
+// end of List definition
 }
 // end of containers.h
