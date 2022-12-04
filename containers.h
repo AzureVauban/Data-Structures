@@ -20,7 +20,9 @@ namespace List
             void setPrevious(Node *Previous) { this->Previous = Previous; }
 //getters
             const int &getIndex() const { return this->Index; }
+        public:
             const Node *getNext() const { return this->Next; }
+            private:
             const Node *getPrevious() const { return this->Previous; }
             //const std::string &getData() const { return this->Data; }
 //constructor
@@ -34,6 +36,7 @@ namespace List
 //setters
     void setHead(Node* head) { this->head = head; }
 //getters
+
 //returns the head Node if the linked list class
     Node* getHead() const { this->head; }
 //functions
@@ -41,6 +44,11 @@ private:
 // returns the Node at the end of the list
     const Node* getEnd() {
         Node * current = this->getHead();
+        //traverse to the end of the current linked list
+        while (current->getNext()) {
+            current = current->getNext();
+        }
+        return current;
     }
 public:
 // returns true if the head node is null
