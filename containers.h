@@ -21,9 +21,9 @@ namespace List
 //getters
             const int &getIndex() const { return this->Index; }
         public:
-            const Node *getNext() const { return this->Next; }
+            Node *getNext() const { return this->Next; }
             private:
-            const Node *getPrevious() const { return this->Previous; }
+            Node *getPrevious() const { return this->Previous; }
             //const std::string &getData() const { return this->Data; }
 //constructor
             explicit Node(Node* Previous, Node* Next){
@@ -42,7 +42,7 @@ namespace List
 //functions
 private:
 // returns the Node at the end of the list
-    const Node* getEnd() {
+     Node* getEnd() {
         Node * current = this->getHead();
         //traverse to the end of the current linked list
         while (current->getNext()) {
