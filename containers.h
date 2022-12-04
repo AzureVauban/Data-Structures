@@ -14,9 +14,19 @@ namespace List
             int Index;
             Node *Next;
             Node *Previous;
+//setters            
             void setIndex(int Index) { this->Index = Index; }
             void setNext(Node *Next) { this->Next = Next; }
             void setPrevious(Node *Previous) { this->Previous = Previous; }
+//getters
+            int getIndex() const { return this->Index; }
+            Node *getNext() const { return this->Next; }
+            Node *getPrevious() const { return this->Previous; }
+            //const std::string &getData() const { return this->Data; }
+//constructor
+            explicit (Node* Next, Node* Previous) {
+                
+            }
         };
         Node *head;
     };
