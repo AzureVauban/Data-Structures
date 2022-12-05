@@ -41,12 +41,14 @@ public:
             //! this->setIndex(this->getPrevious()->getIndex() + 1);
         }
     }
-    private:
+
+private:
     void setData(std::string Data)
     {
         this->Data = std::move(Data);
     }
-    public:
+
+public:
     void setIndex(const int index) { this->index = index; }
 
     // getters
