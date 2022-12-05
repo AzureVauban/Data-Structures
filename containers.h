@@ -5,7 +5,7 @@
 - Stack "Uses the LIFO (last-in, first-out) ordering principle"
 - Linked List "A data structure that contains a group of nodes which together represent a sequence"
 */
-
+class Queue {
 class Node
 {
     Node *next;
@@ -85,5 +85,8 @@ public:
         this->index = -1;
         // std::cout << "Destroyed Node located at " << this << std::endl;
     }
+};
+Node* fr
+int 
 };
 // end of containers.h
