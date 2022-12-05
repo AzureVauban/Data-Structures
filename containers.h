@@ -30,14 +30,14 @@ class Queue
         }
 
     public:
-        void setIndex(const int index) { this->index = index; }
+        void setIndex(const int index);
 
         // getters
 
-        Node *getNext() const { return this->next; }
-        Node *getPrevious() const { return this->previous; }
-        const int getIndex() const { return this->index; }
-        const std::string &getData() const { return this->Data; }
+        Node *getNext();
+        Node *getPrevious();
+        const int getIndex();
+        const std::string &getData() ;
 
         // constructor
 
