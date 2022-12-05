@@ -3,9 +3,12 @@
 int main()
 {
     // test out the Node class first
-    using namespace List;
-    Node head(nullptr, "head", nullptr);
-
+    Node node_one(nullptr, "one", nullptr);
+    Node node_two(&node_one, "two", nullptr);
+    // call the destructor
+    node_one.~Node();
+    // print out the data
+    node_two.~Node();
     std::cout << "terminating process" << std::endl;
     return 0;
 }
