@@ -164,6 +164,7 @@ public:
 
     ~Queue()
     {
+        delete Front;
     }
 };
 // end of containers.h
