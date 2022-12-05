@@ -13,41 +13,59 @@ class Node
     int index;
     std::string Data;
 
-    //setters
-    void setNext(Node* next) {
+    // setters
+    void setNext(Node *next, const bool first_step = true)
+    {
         this->next = next;
-        //if the next pointer is not null
-        if (this->next){
-            //set the previous pointer of next to this
-            this->next->setPrevious(this);
+        // if the next pointer is not null
+        if (this->next && first_step)
+        {
+            // set the previous pointer of next to this
+            this->next->setPrevious(this), false;
         }
     }
-    void setPrevious(Node* previous){
+    void setPrevious(Node *previous, const bool first_step = true)
+    {
         this->previous = previous;
+        // if the previous is not null
+        if (this->previous && first_step)
+        {
+            // set the next pointer of previous to this
+            this->previous->setNext(this, false);
+        }
     }
-    //getters
-    Node* getNext() const  { return this->next; }
-    Node* getPrevious() const { return this->previous; }
+    void setData(std::string Data)
+    {
+        this->Data = std::move(Data);
+    }
+    void setIndex(const int index) { this->index = index; }
+    // getters
+    Node *getNext() const { return this->next; }
+    Node *getPrevious() const { return this->previous; }
+
 public:
     explicit Node(Node *previous, std::string Data, Node *next)
     {
-        this->next = nullptr;
-        this->previous = nullptr;
+        this->setNext(previous);
+        this->setPrevious(next);
+        this->setData(std::move(Data));
     }
     ~Node()
     {
-        
-        //if next or previous is not nullptr set it to nullptr
-        if (this->next){
+
+        // if next or previous is not nullptr set it to nullptr
+        if (this->next)
+        {
             this->next = nullptr;
         }
-        if (this->previous){
+        if (this->previous)
+        {
             this->previous = nullptr;
         }
         delete next;
         delete previous;
-        // set index to -1
-        //std::cout << "Destroyed Node located at " << this << std::endl;
+        this->index = -1;
+        // std::cout << "Destroyed Node located at " << this << std::endl;
     }
 };
 // end of containers.h
