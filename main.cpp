@@ -7,7 +7,7 @@ int main()
     //Node purple(nullptr, "one", nullptr);
     Queue waitlist;
     waitlist.enqueue("Michael");
-    waitlist.enqueue("Jenny");
+    waitlist.enqueue("Nani");
     std::cout << "terminating process" << std::endl;
     return 0;
 }
