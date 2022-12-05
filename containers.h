@@ -22,6 +22,10 @@ class Node
         {
             // set the previous pointer of next to this
             this->next->setPrevious(this), false;
+            // set the index of this node based on the index of the previous node
+            this->setIndex(this->getNext()->getIndex() - 1);
+        } else {
+            this->setIndex(0);
         }
     }
     void setPrevious(Node *previous, const bool first_step = true)
@@ -32,6 +36,10 @@ class Node
         {
             // set the next pointer of previous to this
             this->previous->setNext(this, false);
+            // set the index of this node based on the index of the next node
+            this->setIndex(this->getPrevious()->getIndex() + 1);
+        } else {
+            this->setIndex(0);
         }
     }
     void setData(std::string Data)
@@ -44,10 +52,14 @@ class Node
     Node *getPrevious() const { return this->previous; }
 
 public:
+    const int getIndex() const { return this->index; }
+    const std::string& getData() const { return this->Data; }
+
+public:
     explicit Node(Node *previous, std::string Data, Node *next)
     {
-        this->setNext(previous);
-        this->setPrevious(next);
+        this->setNext(next);
+        this->setPrevious(previous);
         this->setData(std::move(Data));
     }
     ~Node()
