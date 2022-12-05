@@ -24,7 +24,7 @@ class Queue
         {
             this->next = next;
             // if the next pointer is not null
-            if (this->next && first_step)
+            if (this->next && first_step && this)
             {
                 // set the previous pointer of next to this
                 this->next->setPrevious(this), false;
