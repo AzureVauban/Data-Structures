@@ -10,6 +10,7 @@ class Node
 {
     Node *next;
     Node *previous;
+    //! LET THE OBJECT THE NODE IS COMPOSED WITHIN HANDLE ITS INDEXING
     int index;
     std::string Data;
 
@@ -24,11 +25,7 @@ class Node
             // set the previous pointer of next to this
             this->next->setPrevious(this), false;
             // set the index of this node based on the index of the previous node
-            this->setIndex(this->getNext()->getIndex() - 1);
-        }
-        else
-        {
-            this->setIndex(0);
+            //! this->setIndex(this->getNext()->getIndex() - 1);
         }
     }
     void setPrevious(Node *previous, const bool first_step = true)
@@ -40,11 +37,7 @@ class Node
             // set the next pointer of previous to this
             this->previous->setNext(this, false);
             // set the index of this node based on the index of the next node
-            this->setIndex(this->getPrevious()->getIndex() + 1);
-        }
-        else
-        {
-            this->setIndex(0);
+            //! this->setIndex(this->getPrevious()->getIndex() + 1);
         }
     }
     void setData(std::string Data)
@@ -66,15 +59,15 @@ public:
 
     explicit Node(Node *previous, std::string Data, Node *next)
     {
+        this->setIndex(0);
         this->setNext(next);
         this->setPrevious(previous);
         this->setData(std::move(Data));
     }
     // destructors
-    
+
     ~Node()
     {
-
         // if next or previous is not nullptr set it to nullptr
         if (this->next)
         {
