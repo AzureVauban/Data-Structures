@@ -134,7 +134,7 @@ public:
     // functions
 
 //determine if the Queue is empty or not
-    const bool isEmpty() const { return this->Front == nullptr; }
+    bool isEmpty() const { return this->Front == nullptr; }
 
 //append a Node to the end of the queue
 void enqueue(const std::string Data)
