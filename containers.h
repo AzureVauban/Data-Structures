@@ -133,8 +133,21 @@ class Queue
 public:
     // functions
 
+//determine if the Queue is empty or not
     const bool isEmpty() const { return this->Front == nullptr; }
 
+//append a Node to the end of the queue
+void enqueue(const std::string Data)
+{
+if (this->isEmpty()){
+    //overwrite the head-most node
+    this->setFront(new Node(nullptr,std::move(Data),nullptr));
+} else {
+    Node* endpoint = this->getEnd();
+    // create a new endpoint
+    endpoint->setNext(new Node(endpoint,std::move(Data),nullptr));
+}
+}
 public:
     // constructor
 
