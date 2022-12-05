@@ -14,6 +14,7 @@ class Node
     int index;
     std::string Data;
 
+public:
     // setters
 
     void setNext(Node *next, const bool first_step = true)
@@ -46,7 +47,6 @@ class Node
     }
     void setIndex(const int index) { this->index = index; }
 
-public:
     // getters
 
     Node *getNext() const { return this->next; }
@@ -64,7 +64,6 @@ public:
         this->setPrevious(previous);
         this->setData(std::move(Data));
     }
-
 
     // destructors
     ~Node()
