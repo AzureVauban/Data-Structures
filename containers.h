@@ -10,7 +10,7 @@ class Node
 {
     Node *next;
     Node *previous;
-    //! LET THE OBJECT THE NODE IS COMPOSED WITHIN HANDLE ITS INDEXING
+    //! let the class this node is composed within handle its indexing
     int index;
     std::string Data;
 
@@ -45,12 +45,12 @@ class Node
         this->Data = std::move(Data);
     }
     void setIndex(const int index) { this->index = index; }
+
+public:
     // getters
 
     Node *getNext() const { return this->next; }
     Node *getPrevious() const { return this->previous; }
-
-public:
     const int getIndex() const { return this->index; }
     const std::string &getData() const { return this->Data; }
 
@@ -64,8 +64,9 @@ public:
         this->setPrevious(previous);
         this->setData(std::move(Data));
     }
-    // destructors
 
+
+    // destructors
     ~Node()
     {
         // if next or previous is not nullptr set it to nullptr
