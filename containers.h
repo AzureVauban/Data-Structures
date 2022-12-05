@@ -104,23 +104,47 @@ class Queue
         if (!this->isEmpty())
         {
             // traverse forward through the data structure
+            Node *current = this->getFront();
+            while (current)
+            {
+                current = current->getNext();
+                new_size += 1;
+            }
         }
         this->Size = new_size;
     }
     // getters
 
+    Node *getFront() const { return this->Front; }
+
+    Node *getEnd() const
+    {
+        Node *current = this->getFront();
+        if (!this->isEmpty())
+        {
+            while (current)
+            {
+                current = current->getNext();
+            }
+        }
+        return current;
+    }
+
 public:
     // functions
+
     const bool isEmpty() const { return this->Front == nullptr; }
 
 public:
     // constructor
+
     explicit Queue()
     {
         this->setFront(nullptr);
         this->setSize();
     }
     // destructor
+
     ~Queue()
     {
     }
