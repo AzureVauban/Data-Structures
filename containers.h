@@ -12,6 +12,15 @@ class Node
     int index;
     std::string Data;
 
+    //setters
+    void setNext(Node* next){
+        this->next;
+        if (this->next){
+            //set the previous pointer on the next Node to this node instance
+        }
+    }
+    //getters
+    //Node* getNext() const 
 public:
     explicit Node(Node *previous, std::string Data, Node *next)
     {
@@ -23,6 +32,13 @@ public:
         for (auto &character : Data)
         {
             Data.pop_back();
+        }
+        //if next or previous is not nullptr set it to nullptr
+        if (this->next){
+            this->next = nullptr;
+        }
+        if (this->previous){
+            this->previous = nullptr;
         }
         delete next;
         delete previous;
