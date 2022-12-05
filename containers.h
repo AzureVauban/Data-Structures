@@ -41,10 +41,12 @@ public:
             //! this->setIndex(this->getPrevious()->getIndex() + 1);
         }
     }
+    private:
     void setData(std::string Data)
     {
         this->Data = std::move(Data);
     }
+    public:
     void setIndex(const int index) { this->index = index; }
 
     // getters
@@ -54,7 +56,6 @@ public:
     const int getIndex() const { return this->index; }
     const std::string &getData() const { return this->Data; }
 
-public:
     // constructor
 
     explicit Node(Node *previous, std::string Data, Node *next)
