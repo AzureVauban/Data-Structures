@@ -14,6 +14,7 @@ class Node
     std::string Data;
 
     // setters
+
     void setNext(Node *next, const bool first_step = true)
     {
         this->next = next;
@@ -24,7 +25,9 @@ class Node
             this->next->setPrevious(this), false;
             // set the index of this node based on the index of the previous node
             this->setIndex(this->getNext()->getIndex() - 1);
-        } else {
+        }
+        else
+        {
             this->setIndex(0);
         }
     }
@@ -38,7 +41,9 @@ class Node
             this->previous->setNext(this, false);
             // set the index of this node based on the index of the next node
             this->setIndex(this->getPrevious()->getIndex() + 1);
-        } else {
+        }
+        else
+        {
             this->setIndex(0);
         }
     }
@@ -48,20 +53,25 @@ class Node
     }
     void setIndex(const int index) { this->index = index; }
     // getters
+
     Node *getNext() const { return this->next; }
     Node *getPrevious() const { return this->previous; }
 
 public:
     const int getIndex() const { return this->index; }
-    const std::string& getData() const { return this->Data; }
+    const std::string &getData() const { return this->Data; }
 
 public:
+    // constructor
+
     explicit Node(Node *previous, std::string Data, Node *next)
     {
         this->setNext(next);
         this->setPrevious(previous);
         this->setData(std::move(Data));
     }
+    // destructors
+    
     ~Node()
     {
 
