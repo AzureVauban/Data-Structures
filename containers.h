@@ -1,148 +1,56 @@
-#pragma once
+//
+// Created by halor on 12/5/2022.
+//
+
+#ifndef MYCUSTOMSTRUCTURES_CONTAINERS_H_H
+#define MYCUSTOMSTRUCTURES_CONTAINERS_H_H
+
 #include <iostream>
-/*
-- Queue "Uses the FIFO (first-in, first-out) ordering principle"
-- Stack "Uses the LIFO (last-in, first-out) ordering principle"
-- Linked List "A data structure that contains a group of nodes which together represent a sequence"
-*/
-
-// Uses the FIFO (first-in, first-out) ordering principle
-class Queue
+class Queue {
+class Node
 {
-    class Node
-    {
-        Node *next;
-        Node *previous;
-        //! let the class this node is composed within handle its indexing
-        int index;
-        std::string Data;
-
-    public:
-        // setters
-
-        void setNext(Node *next, const bool first_step = true);
-        void setPrevious(Node *previous, const bool first_step = true);
-
-    private:
-        void setData(std::string Data)
-        {
-            this->Data = std::move(Data);
-        }
-
-    public:
-        void setIndex(const int index);
-
-        // getters
-
-        Node *getNext();
-        Node *getPrevious();
-        const int getIndex();
-        const std::string &getData() ;
-
-        // constructor
-
-        explicit Node(Node *previous, std::string Data, Node *next)
-        {
-            this->setIndex(0);
-            this->setNext(next);
-            this->setPrevious(previous);
-            this->setData(std::move(Data));
-        }
-
-        // destructors
-        ~Node()
-        {
-            // if next or previous is not nullptr set it to nullptr
-            if (this->next)
-            {
-                this->next = nullptr;
-            }
-            if (this->previous)
-            {
-                this->previous = nullptr;
-            }
-            delete next;
-            delete previous;
-            this->index = -1;
-            // std::cout << "Destroyed Node located at " << this << std::endl;
-        }
-    };
-    // end of Node class definition for Queue
-
-    Node *Front;
-    int Size;
-
+    int index;
+    Node *next;
+    Node *previous;
+    std::string data;
+    static int instances;
+public:
     // setters
-
-    void setFront(Node *Front) { this->Front = Front; }
-
-    void setSize()
-    {
-        int new_size = 0;
-        if (!this->isEmpty())
-        {
-            // traverse forward through the data structure
-            Node *current = this->getFront();
-            while (current)
-            {
-                current = current->getNext();
-                new_size += 1;
-            }
-        }
-        this->Size = new_size;
-    }
+    void setIndex(int new_index);
+    void setNext(Node *new_next);
+    void setPrevious(Node *new_previous);
+    void setData(std::string new_data);
     // getters
-
-    Node *getFront() const { return this->Front; }
-
-    Node *getEnd() const
-    {
-        Node *current = this->getFront();
-        if (!this->isEmpty())
-        {
-            while (current)
-            {
-                current = current->getNext();
-            }
-        }
-        return current;
-    }
-
-public:
+    int getIndex();
+    Node *getNext();
+    Node *getPrevious();
+    std::string getData();
     // functions
-
-    // determine if the Queue is empty or not
-    bool isEmpty() const { return this->Front == nullptr; }
-
-    // append a Node to the end of the queue
-    void enqueue(const std::string Data)
-    {
-        if (this->isEmpty())
-        {
-            // overwrite the head-most node
-            this->setFront(new Node(nullptr, std::move(Data), nullptr));
-        }
-        else
-        {
-            Node *endpoint = this->getEnd();
-            // create a new endpoint
-            endpoint->setNext(new Node(endpoint, std::move(Data), nullptr));
-        }
-    }
-
-public:
+    void test_echo(const std::string& echo);
+    Node* getEnd();
     // constructor
-
-    explicit Queue()
-    {
-        this->setFront(nullptr);
-        this->setSize();
-    }
+    explicit Node(Node *Next, std::string Data,Node *Previous);
     // destructor
-
-    ~Queue()
-    {
-        delete Front;
-    }
+    ~Node();
 };
-// end of containers.h
+Node* front{}; //? what is the point of including curly brackets before the semicolon?
+int size{};
+static int instances;
+//setters
+void setFront(Node* front_node);
+void setSize();
+//getters
+Node* getFront();
+Node* getEnd();
+public:
+int getSize();
+//functions
+bool isEmpty();
+Node* enqueue(std::string data);
+std::string dequeue();
+//constructor
+explicit Queue();
+//destructor
+~Queue();
+};
+#endif // MYCUSTOMSTRUCTURES_CONTAINERS_H_H

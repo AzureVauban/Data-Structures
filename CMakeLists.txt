@@ -5,7 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 
 #include_directories(.)
 
-add_executable(MyCustomStructures
-containers.h
-main.cpp)
+add_executable(MyCustomStructures main.cpp containers.cpp containers.h)
 
