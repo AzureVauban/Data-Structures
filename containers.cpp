@@ -22,40 +22,45 @@ Queue::Node *Queue::Node::getNext() { return this->next; }
 Queue::Node *Queue::Node::getPrevious() { return this->previous; }
 std::string Queue::Node::getData() { return this->data; }
 // Node class functions
-void Queue::Node::test_echo(const std::string& echo) { std::cout << echo << std::endl; }
-//Node class constructor
-Queue::Node::Node(Queue::Node *Next, std::string Data,Queue::Node *Previous)
+void Queue::Node::test_echo(const std::string &echo) { std::cout << echo << std::endl; }
+// Node class constructor
+Queue::Node::Node(Queue::Node *Next, std::string Data, Queue::Node *Previous)
 {
-    instances+=1;
+    instances += 1;
     this->next = Next;
     this->previous = Previous;
     this->index = 0;
     this->data = std::move(Data);
 }
-//Node class destructor
+// Node class destructor
 Queue::Node::~Node()
 {
     this->index = -1;
-    instances-=1;
+    instances -= 1;
     std::cout << "destroyed node" << std::endl;
 }
 // Queue class setters
 int Queue::instances = 0;
 void Queue::setFront(Queue::Node *front_node) { this->front = front_node; }
-void Queue::setSize() {
+void Queue::setSize()
+{
     int new_size = 0;
-    Node* current = this->getFront();
-    while(current){
-        new_size+=1;
+    Node *current = this->getFront();
+    while (current)
+    {
+        new_size += 1;
         current = current->getNext();
     }
-    this->size = 0; }
+    this->size = 0;
+}
 // Queue class getters
 Queue::Node *Queue::getFront() { return this->front; }
-Queue::Node *Queue::getEnd() {
-    Node* current = this->getFront();
+Queue::Node *Queue::getEnd()
+{
+    Node *current = this->getFront();
 
-    while(current->getNext()&&isEmpty()){
+    while (current->getNext() && isEmpty())
+    {
         current = current->getNext();
     }
     return current;
@@ -63,11 +68,15 @@ Queue::Node *Queue::getEnd() {
 int Queue::getSize() { return this->size; }
 // Queue class functions
 bool Queue::isEmpty() { return this->size == 0; }
-Queue::Node *Queue::enqueue(std::string data) {
-    Node* new_node = new Node(nullptr,std::move(data),this->getEnd());
-    if(this->isEmpty()){
+Queue::Node *Queue::enqueue(std::string data)
+{
+    Node *new_node = new Node(nullptr, std::move(data), this->getEnd());
+    if (this->isEmpty())
+    {
         this->setFront(new_node);
-    }else{
+    }
+    else
+    {
         this->getEnd()->setNext(new_node);
     }
     this->setSize();
@@ -76,15 +85,15 @@ Queue::Node *Queue::enqueue(std::string data) {
 // Queue class constructor
 Queue::Queue()
 {
-   this->setFront(nullptr);
+    this->setFront(nullptr);
     this->setSize();
-    Queue::instances+=1;
+    Queue::instances += 1;
 }
 // Queue class destructor
 Queue::~Queue()
 {
- //   this->front = nullptr;
-    Queue::instances-=1;
+    //   this->front = nullptr;
+    Queue::instances -= 1;
     this->size = -1;
     std::cout << "destroyed queue" << std::endl;
 }
