@@ -54,10 +54,9 @@ namespace Queue
             }
             else
             {
-                // create a new head
-                Node<T> *new_head = new Node<T>(nullptr, Data, this->Head);
-                this->Head->setPrev(nullptr);
-                this->Head = new_head;
+                // append the node to the end
+                Node<T> *new_head = new Node<T>(nullptr, Data, nullptr);
+                
                 // set the index values of the new Node
                 this->setIndex();
             }
