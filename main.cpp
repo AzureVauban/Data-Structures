@@ -40,12 +40,27 @@ void Stack_demo(Stack::Stack<long long int> &nums)
         std::cout << "Popping from the stack: " << nums.pop() << std::endl;
     }
 }
+void comparison_demo(Queue::Queue<long long int> &Queue,
+                     Stack::Stack<long long int> &Stack)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        Queue.enqueue(fibsequence(i));
+        Stack.push(fibsequence(i));
+    }
+    std::cout << "Peaking Queue: " << Queue.peak() << std::endl
+              << "Peaking Stack: " << Stack.peak() << std::endl;
+    for (int i = 0; i < 9; i++)
+    {
+        std::cout << "Dequeuing " << Queue.dequeue() << " | "
+                  << "Popping (From Stack): " << Stack.pop() << std::endl;
+    }
+}
 int main()
 {
     Queue::Queue<long long int> nums_queue;
-    //Stack::Stack<long long int> nums_stack;
-    Queue_demo(nums_queue);
-    //Stack_demo(nums_stack);
+    Stack::Stack<long long int> nums_stack;
+    comparison_demo(nums_queue, nums_stack);
     std::cout << "terminating process" << std::endl;
     return 0;
 }

@@ -94,6 +94,7 @@ namespace Queue
             }
             delete this->Head;
             // std::cout << "destroyed queue" << std::endl;
+            std::cout << "Destroyed Queue object at " << this << std::endl;
         }
     };
 }

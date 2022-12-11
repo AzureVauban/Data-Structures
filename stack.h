@@ -52,7 +52,7 @@ namespace Stack
                 this->Head->setPrev(nullptr);
                 this->Head = new_head;
                 // set the index values of the new Node
-                //this->setIndex();
+                // this->setIndex();
             }
             this->Size += 1;
         }
@@ -87,7 +87,7 @@ namespace Stack
             delete this->Head;
             // delete Head;
             this->Size = 0;
-            std::cout << "Destroyed Queue object at " << this << std::endl;
+            std::cout << "Destroyed Stack object at " << this << std::endl;
         }
     };
 }
