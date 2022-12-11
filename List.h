@@ -64,20 +64,17 @@ namespace List
         }
         void insert(T Data, const int Index)
         { // TODO FINISH
-            if (this->isnotwithinRange(Index))
-            {
-                std::cout << "IS NOT WITHIN RANGE" << std::endl;
-            } else if (Index == this->getSize()-1)
-            {
-                this->append(Data);
-            } 
+            if (this->isnotwithinRange(Index)) { std::cout << "IS NOT WITHIN RANGE" << std::endl;} 
+                else if (Index == this->getSize()-1) { this->append(Data);} 
             else {
                 Node<T>* current = this->getHead();
                 while (current->getIndex() != Index) {
                     current = current->getNext();
                 }
-                //insert new node below
-                    this->Size += 1;
+                // insert new node below node with the selected index
+                Node<T>* previous_of_new = current->getPrev();
+                Node<T>* new_node 
+                this->Size += 1;
             }
 
         }
