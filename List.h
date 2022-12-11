@@ -21,6 +21,7 @@ namespace List
         Node<T> *Head;
         int Size;
         // functions
+    public:
         int getSize() { return this->Size; }
         const bool isEmpty() { return this->Size == 0; }
 
@@ -38,11 +39,9 @@ namespace List
             }
             return current;
         }
-        const bool iswithinRange(const int index)
-        {
-            // TODO FINISH
-            return true;
-        }
+
+    public:
+        const bool isnotwithinRange(const int index) { return index < 0 || index >= this->getSize(); }
 
     public:
         void append(T Data)
@@ -65,7 +64,13 @@ namespace List
         }
         void insert(T Data, const int Index)
         { // TODO FINISH
-                }
+            if (this->isnotwithinRange(Index))
+            {
+                std::cout << "IS NOT WITHIN RANGE" << std::endl;
+            } else {
+                
+            }
+        }
         void remove(const int Index)
         {
             // TODO FINISH

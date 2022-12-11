@@ -83,7 +83,25 @@ int main()
     Stack::Stack<long long int> nums_stack;
     List::List<long long int> nums_list;
     // nums_list.
-    comparison_demo(nums_queue, nums_stack, nums_list);
+    // comparison_demo(nums_queue, nums_stack, nums_list);
+    for (int i = 0; i < 10; i++)
+    {
+        nums_list.append(i);
+    }
+    std::cout << nums_list.peak() << std::endl;
+    for (int i = -1; i < nums_list.getSize() + 1; i++)
+    {
+        if (nums_list.isnotwithinRange(i))
+        {
+            std::cout << "\x1B[31m" << i << " is not within range!\x1B[0m" << std::endl;
+        }
+        else
+        {
+            std::cout << "\x1B[32m" << i << " is within range.\x1B[0m" << std::endl;
+        }
+        nums_list.insert(i, i);
+    }
+
     std::cout << "terminating process" << std::endl;
     return 0;
 }
