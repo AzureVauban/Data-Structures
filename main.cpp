@@ -1,5 +1,6 @@
-#include <iostream>
-
+#include "queue.h"
+#include "stack.h"
+/*
 namespace Solution
 {
     namespace Stack
@@ -260,11 +261,8 @@ namespace Solution
         };
     }
 
-    namespace List
-    {
-
-    }
 }
+*/
 long long int fibsequence(const long long int n)
 {
     if (n <= 1)
@@ -280,7 +278,6 @@ long long int fibsequence(const long long int n)
 int main()
 {
 
-    using namespace Solution;
     /*
     Stack::Stack<int> stack_nums;
     for (int i = 0; i < 10; i++)
