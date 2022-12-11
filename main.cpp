@@ -113,7 +113,7 @@ namespace List
         { // TODO FINISH
             if (this->isnotwithinRange(Index))
             {
-                std::cout << "IS NOT WITHIN RANGE" << std::endl;
+                std::cout << Index << " IS NOT WITHIN RANGE" << std::endl;
             }
             else if (Index == this->getSize() - 1)
             {
@@ -477,6 +477,7 @@ void Stack_demo(Stack::Stack<long long int> &nums)
         std::cout << "Popping from the stack: " << nums.pop() << std::endl;
     }
 }
+
 void comparison_demo(Queue::Queue<long long int> &Queue, Stack::Stack<long long int> &Stack, List::List<long long int> &List)
 {
     for (int i = 1; i <= 10; i++)
@@ -513,6 +514,7 @@ void comparison_demo(Queue::Queue<long long int> &Queue, Stack::Stack<long long 
               << "Peaking Stack: " << Stack.peak() << std::endl
               << "Peaking List: " << List.peak() << std::endl;
 }
+
 int main()
 {
     Queue::Queue<long long int> nums_queue;
@@ -529,7 +531,6 @@ int main()
     {
         nums_list.insert(i, i);
     }
-
     std::cout << "terminating process" << std::endl;
     return 0;
 }
