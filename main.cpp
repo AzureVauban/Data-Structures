@@ -72,7 +72,7 @@ int main()
 {
     Queue::Queue<long long int> nums_queue;
     Stack::Stack<long long int> nums_stack;
-   // List::List<long long int> nums_list;
+    List::List<long long int> nums_list;
     comparison_demo(nums_queue, nums_stack);
     std::cout << "terminating process" << std::endl;
     return 0;
