@@ -8,6 +8,16 @@ namespace List
     template <class T>
     class List
     {
+        /*
+        operations:
+        - peak
+        - isempty
+        - append
+        - insert
+        - pop
+        - remove
+        - reverse
+        */
     };
 }
 #endif // !LINK_LIST_H_
