@@ -7,6 +7,9 @@ namespace Stack
 {
 
     //? use the first in, last out paradigm
+
+    //? how are elements added to the Stack?
+    //
     template <class T>
     class Stack
     {
@@ -50,7 +53,9 @@ namespace Stack
 
         T peak() { return this->getHead()->getData(); }
 
-        T pop() { /* ADD NEW CODE HERE*/ }
+        T pop()
+        { /* ADD NEW CODE HERE*/
+        }
 
     public:
         explicit Stack()
