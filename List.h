@@ -67,7 +67,7 @@ namespace List
             if (this->isnotwithinRange(Index))
             {
                 std::cout << "IS NOT WITHIN RANGE" << std::endl;
-            } else if (this->) {
+            } else if () {
                 
             }
         }
