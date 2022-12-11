@@ -41,18 +41,25 @@ void Stack_demo(Stack::Stack<long long int> &nums)
         std::cout << "Popping from the stack: " << nums.pop() << std::endl;
     }
 }
-void comparison_demo(Queue::Queue<long long int> &Queue,
-                     Stack::Stack<long long int> &Stack,
-                     List::List<long long int> &List)
+void comparison_demo(Queue::Queue<long long int> &Queue, Stack::Stack<long long int> &Stack, List::List<long long int> &List)
 {
     for (int i = 1; i <= 10; i++)
     {
         int term = fibsequence(i + 1);
         Queue.enqueue(term);
         Stack.push(term);
+        if (i % 2 == 0)
+        {
+            List.push(term);
+        }
+        else
+        {
+            List.push(term * -2);
+        }
     }
     std::cout << "Peaking Queue: " << Queue.peak() << std::endl
-              << "Peaking Stack: " << Stack.peak() << std::endl;
+              << "Peaking Stack: " << Stack.peak() << std::endl
+              << "Peaking List: " << List.peak() << std::endl;
     for (int i = 0; i < 9; i++)
     {
         if (i < 4)
@@ -66,8 +73,9 @@ void comparison_demo(Queue::Queue<long long int> &Queue,
                       << "Popping (From Stack): " << Stack.pop() << std::endl;
         }
     }
-    std::cout << "Peaking Queue: " << Queue.peak() << std::endl
-              << "Peaking Stack: " << Stack.peak() << std::endl;
+  std::cout << "Peaking Queue: " << Queue.peak() << std::endl
+              << "Peaking Stack: " << Stack.peak() << std::endl
+              << "Peaking List: " << List.peak() << std::endl;
 }
 int main()
 {
