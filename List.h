@@ -64,9 +64,17 @@ namespace List
         }
         void insert(T Data, const int Index)
         { // TODO FINISH
-            if (this->isnotwithinRange(Index)) { std::cout << "IS NOT WITHIN RANGE" << std::endl; }
-            else if (this->isnotwithinRange(Index)) { std::cout << std::endl; } 
-            else {}
+            if (this->isnotwithinRange(Index))
+            {
+                std::cout << "IS NOT WITHIN RANGE" << std::endl;
+            }
+            else if (this->isnotwithinRange(Index))
+            {
+                std::cout << std::endl;
+            }
+            else
+            {
+            }
         }
         void remove(const int Index)
         {
