@@ -68,8 +68,8 @@ namespace List
                 this->Head->setPrev(nullptr);
                 this->Head = new_head;
                 // set the index values of the new Node
-                this->setIndex();
             }
+            this->setIndex();
             this->Size += 1;
         }
         void insert(T Data, const int Index)

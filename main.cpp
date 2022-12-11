@@ -91,7 +91,7 @@ int main()
     std::cout << nums_list.peak() << std::endl;
     for (int i = -1; i < nums_list.getSize() + 1; i++)
     {
-        nums_list.insert(i, i);
+        //nums_list.insert(i, i);
     }
 
     std::cout << "terminating process" << std::endl;
