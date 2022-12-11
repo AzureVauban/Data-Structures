@@ -521,8 +521,8 @@ int main()
     Stack::Stack<long long int> nums_stack;
     List::List<long long int> nums_list;
     // nums_list.
-    // comparison_demo(nums_queue, nums_stack, nums_list);
-    for (int i = 0; i < 10; i++)
+    comparison_demo(nums_queue, nums_stack, nums_list);
+    /*for (int i = 0; i < 10; i++)
     {
         nums_list.append(i);
     }
@@ -530,7 +530,7 @@ int main()
     for (int i = -1; i < nums_list.getSize() + 1; i++)
     {
         nums_list.insert(i, i);
-    }
+    }*/
     std::cout << "terminating process" << std::endl;
     return 0;
 }
