@@ -9,7 +9,7 @@ namespace Stack
     //? use the first in, last out paradigm
 
     //? how are elements added to the Stack?
-    //
+    //* insert at above head
     template <class T>
     class Stack
     {
@@ -45,10 +45,12 @@ namespace Stack
                 this->Size += 1;
                 // overwrite the head pointer
                 this->Head = new Node<T>(nullptr, Data, nullptr);
+            } else {
+                
             }
 
             // set the next index
-            this->getEnd()->setIndex(this->getSize() - 1);
+            //this->getEnd()->setIndex(this->getSize() - 1);
         }
 
         T peak() { return this->getHead()->getData(); }

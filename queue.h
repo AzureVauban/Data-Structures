@@ -6,6 +6,7 @@
 namespace Queue
 {
     //? use the first in, first out paradigm
+    //* insert below head
     template <class T>
     class Queue // TODO FINISH
     {
