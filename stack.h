@@ -46,7 +46,7 @@ namespace Stack
                 // overwrite the head pointer
                 this->Head = new Node<T>(nullptr, Data, nullptr);
             } else {
-                
+
             }
 
             // set the next index
@@ -57,6 +57,7 @@ namespace Stack
 
         T pop()
         { /* ADD NEW CODE HERE*/
+    
         }
 
     public:
@@ -67,6 +68,10 @@ namespace Stack
         }
         ~Stack()
         {
+            while (this->Head)
+            {
+                delete this->getEnd();
+            }
             // delete Head;
             this->Size = 0;
             std::cout << "Destroyed Queue object at " << this << std::endl;
