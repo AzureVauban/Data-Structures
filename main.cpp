@@ -45,8 +45,9 @@ void comparison_demo(Queue::Queue<long long int> &Queue,
 {
     for (int i = 1; i <= 10; i++)
     {
-        Queue.enqueue(fibsequence(i + 1));
-        Stack.push(fibsequence(i + 1));
+        int term = fibsequence(i + 1);
+        Queue.enqueue(term);
+        Stack.push(term);
     }
     std::cout << "Peaking Queue: " << Queue.peak() << std::endl
               << "Peaking Stack: " << Stack.peak() << std::endl;

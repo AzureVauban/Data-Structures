@@ -18,7 +18,14 @@ namespace List
     template <class T>
     class List
     {
-        
+        Node<T> Head;
+        int Size;
+        public:
+        explicit Queue()
+        {
+            this->Head = nullptr;
+            this->Size = 0;
+        }
     };
 }
 #endif // !LINK_LIST_H_
