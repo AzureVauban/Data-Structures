@@ -84,11 +84,9 @@ namespace List
         {
             // TODO FINISH
         }
-        T pop()
-        {
+        T pop() {
             T old_head_value = this->getHead()->getData();
-            if (!this->isEmpty())
-            {
+            if (!this->isEmpty()) {
                 Node<T> *old_head = this->getHead();
                 Node<T> *new_head = old_head->getNext();
                 this->Head = new_head;
@@ -97,6 +95,7 @@ namespace List
             this->Size -= 1;
             return old_head_value;
         }
+        
         T peak()
         {
             return this->getHead()->getData();
