@@ -67,14 +67,9 @@ namespace List
             if (this->isnotwithinRange(Index))
             {
                 std::cout << "IS NOT WITHIN RANGE" << std::endl;
+                return;
             }
-            else if (this->isnotwithinRange(Index))
-            {
-                std::cout << std::endl;
-            }
-            else
-            {
-            }
+            
         }
         void remove(const int Index)
         {
