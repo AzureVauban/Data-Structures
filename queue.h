@@ -1,20 +1,20 @@
 #ifndef QUEUE_H_
 #define QUEUE_H_
 
-#include <iostream>
+#include "Nodebase.h"
 
 namespace Queue
 {
     template <class A>
     class Queue // TODO FINISH
     {
-        template <class B>
+        template <class T>
         class Node
         {
             int index;
             Node *next;
             Node *prev;
-            B data;
+            T data;
 
         public:
             // setters
@@ -22,14 +22,14 @@ namespace Queue
             void setIndex(const int index) { this->index = index; }
             void setNext(Node *next) { this->next = next; }
             void setPrev(Node *prev) { this->prev = prev; }
-            void setData(B data) { this->data = data; }
+            void setData(T data) { this->data = data; }
 
             // getters
 
             const int &getIndex() { return this->index; }
             Node *getNext() { return this->next; }
             Node *getPrev() { return this->prev; }
-            const B &getData() { return this->data; }
+            const T &getData() { return this->data; }
 
             // functions
 
@@ -41,7 +41,7 @@ namespace Queue
                           << "Index: " << this->getIndex() << std::endl;
             }
 
-            explicit Node(Node *prev, B Data, Node *next)
+            explicit Node(Node *prev, T Data, Node *next)
             {
                 setIndex(0);
                 setPrev(prev);

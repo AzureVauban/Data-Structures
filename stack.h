@@ -1,55 +1,13 @@
 #ifndef STACK_H_
 #define STACK_H_
 
-#include <iostream>
+#include "nodebase.h"
 
 namespace Stack
 {
     template <class A>
     class Stack
     {
-        template <class B>
-        class Node
-        {
-            int index;
-            Node *next;
-            Node *prev;
-            B data;
-
-        public:
-            // setters
-
-            void setIndex(const int index) { this->index = index; }
-            void setNext(Node *next) { this->next = next; }
-            void setPrev(Node *prev) { this->prev = prev; }
-            void setData(B data) { this->data = data; }
-
-            // getters
-
-            const int &getIndex() { return this->index; }
-            Node *getNext() { return this->next; }
-            Node *getPrev() { return this->prev; }
-            const B &getData() { return this->data; }
-
-            // functions
-
-            void printinfo()
-            {
-                std::cout << "Next*: " << this->getNext() << std::endl
-                          << "Data: " << this->getData() << std::endl
-                          << "Prev*: " << this->getPrev() << std::endl
-                          << "Index: " << this->getIndex() << std::endl;
-            }
-
-            explicit Node(Node *prev, B Data, Node *next)
-            {
-                setIndex(0);
-                setPrev(prev);
-                setData(Data);
-                setNext(next);
-            }
-        };
-
         Node<A> *Head;
         int Size;
 
