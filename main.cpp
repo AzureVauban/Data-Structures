@@ -43,7 +43,7 @@ void Stack_demo(Stack::Stack<long long int> &nums)
 void comparison_demo(Queue::Queue<long long int> &Queue,
                      Stack::Stack<long long int> &Stack)
 {
-    for (int i = 0; i < 10; i++)
+    for (int i = 1; i <= 10; i++)
     {
         Queue.enqueue(fibsequence(i));
         Stack.push(fibsequence(i));
