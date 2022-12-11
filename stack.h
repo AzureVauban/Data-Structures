@@ -5,21 +5,21 @@
 
 namespace Stack
 {
-    template <class A>
+    template <class T>
     class Stack
     {
-        Node<A> *Head;
+        Node<T> *Head;
         int Size;
 
-        Node<A> *getHead() { return this->Head; }
+        Node<T> *getHead() { return this->Head; }
 
     public:
         const int getSize() { return this->Size; }
 
     private:
-        Node<A> *getEnd()
+        Node<T> *getEnd()
         {
-            Node<A> *current = this->getHead();
+            Node<T> *current = this->getHead();
             if (!isEmpty())
             {
                 while (current->getNext())
@@ -33,32 +33,32 @@ namespace Stack
     public:
         const bool isEmpty() { return this->Head == nullptr; }
 
-        void push(A Data)
+        void push(T Data)
         {
             this->Size += 1;
             if (this->isEmpty())
             {
                 // overwrite the head pointer
-                this->Head = new Node<A>(nullptr, Data, nullptr);
+                this->Head = new Node<T>(nullptr, Data, nullptr);
             }
             else
             {
                 // Node<T> *new_node = new Node(PREV PTR, NEW DATA, NEXT PTR);
                 // get the endpoint
-                Node<A> *endpoint = this->getEnd();
-                endpoint->setNext(new Node<A>(endpoint, Data, nullptr));
+                Node<T> *endpoint = this->getEnd();
+                endpoint->setNext(new Node<T>(endpoint, Data, nullptr));
                 // this->getEnd()->setIndex(this->getEnd()->getIndex() + 1);
             }
             // set the next index
             this->getEnd()->setIndex(this->getSize() - 1);
         }
 
-        A peak() { return this->getHead()->getData(); }
+        T peak() { return this->getHead()->getData(); }
 
-        A pop()
+        T pop()
         {
-            Node<A> *endpoint = this->getEnd();
-            A return_value = endpoint->getData();
+            Node<T> *endpoint = this->getEnd();
+            T return_value = endpoint->getData();
             endpoint->getPrev()->setNext(nullptr);
             delete endpoint;
             this->Size -= 1;

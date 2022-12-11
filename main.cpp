@@ -15,13 +15,13 @@ long long int fibsequence(const long long int n)
 
 void Queue_demo(Queue::Queue<long long int> &nums)
 {
-    //first in, first out
+    // first in, first out
     int size = 11;
     for (int i = 0; i < size; i++)
     {
         nums.enqueue(fibsequence(i));
     }
-    for (int i = 0; i < size-1; i++)
+    for (int i = 0; i < size - 1; i++)
     {
         std::cout << "Dequeueing: " << nums.dequeue() << std::endl;
     }
@@ -35,7 +35,7 @@ void Stack_demo(Stack::Stack<long long int> &nums)
     {
         nums.push(fibsequence(i));
     }
-    for (int i = 0; i < size-1; i++)
+    for (int i = 0; i < size - 1; i++)
     {
         std::cout << "Popping from the stack: " << nums.pop() << std::endl;
     }

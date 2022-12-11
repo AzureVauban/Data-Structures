@@ -5,52 +5,11 @@
 
 namespace Queue
 {
-    template <class A>
+    template <class T>
     class Queue // TODO FINISH
     {
-        template <class T>
-        class Node
-        {
-            int index;
-            Node *next;
-            Node *prev;
-            T data;
 
-        public:
-            // setters
-
-            void setIndex(const int index) { this->index = index; }
-            void setNext(Node *next) { this->next = next; }
-            void setPrev(Node *prev) { this->prev = prev; }
-            void setData(T data) { this->data = data; }
-
-            // getters
-
-            const int &getIndex() { return this->index; }
-            Node *getNext() { return this->next; }
-            Node *getPrev() { return this->prev; }
-            const T &getData() { return this->data; }
-
-            // functions
-
-            void printinfo()
-            {
-                std::cout << "Next*: " << this->getNext() << std::endl
-                          << "Data: " << this->getData() << std::endl
-                          << "Prev*: " << this->getPrev() << std::endl
-                          << "Index: " << this->getIndex() << std::endl;
-            }
-
-            explicit Node(Node *prev, T Data, Node *next)
-            {
-                setIndex(0);
-                setPrev(prev);
-                setData(Data);
-                setNext(next);
-            }
-        };
-
-        Node<A> *Head;
+        Node<T> *Head;
         int Size;
 
         // functions
@@ -58,10 +17,10 @@ namespace Queue
         const bool isEmpty() { return this->Size == 0; }
 
     private:
-        Node<A> *getHead() { return this->Head; }
-        Node<A> *getEnd()
+        Node<T> *getHead() { return this->Head; }
+        Node<T> *getEnd()
         {
-            Node<A> *current = this->getHead();
+            Node<T> *current = this->getHead();
             if (!isEmpty())
             {
                 while (current->getNext())
@@ -74,7 +33,7 @@ namespace Queue
         void setIndex()
         {
             int new_index = 0;
-            Node<A> *current = this->getHead();
+            Node<T> *current = this->getHead();
             while (current->getNext())
             {
                 current->setIndex(new_index);
@@ -84,17 +43,17 @@ namespace Queue
         }
 
     public:
-        void enqueue(A Data)
+        void enqueue(T Data)
         {
             if (this->isEmpty())
             {
                 // overwrite the head pointer
-                this->Head = new Node<A>(nullptr, Data, nullptr);
+                this->Head = new Node<T>(nullptr, Data, nullptr);
             }
             else
             {
                 // create a new head
-                Node<A> *new_head = new Node<A>(nullptr, Data, this->Head);
+                Node<T> *new_head = new Node<T>(nullptr, Data, this->Head);
                 this->Head->setPrev(nullptr);
                 this->Head = new_head;
                 // set the index values of the new Node
@@ -102,17 +61,17 @@ namespace Queue
             }
             this->Size += 1;
         }
-        A peak()
+        T peak()
         {
             return this->getHead()->getData();
         }
-        A dequeue()
+        T dequeue()
         {
-            A old_head_value = this->getHead()->getData();
+            T old_head_value = this->getHead()->getData();
             if (!this->isEmpty())
             {
-                Node<A> *old_head = this->getHead();
-                Node<A> *new_head = old_head->getNext();
+                Node<T> *old_head = this->getHead();
+                Node<T> *new_head = old_head->getNext();
                 this->Head = new_head;
                 old_head->setNext(nullptr);
             }
