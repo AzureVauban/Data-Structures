@@ -42,7 +42,8 @@ void Stack_demo(Stack::Stack<long long int> &nums)
     }
 }
 void comparison_demo(Queue::Queue<long long int> &Queue,
-                     Stack::Stack<long long int> &Stack)
+                     Stack::Stack<long long int> &Stack,
+                     List::List<long long int> &List)
 {
     for (int i = 1; i <= 10; i++)
     {
@@ -73,7 +74,8 @@ int main()
     Queue::Queue<long long int> nums_queue;
     Stack::Stack<long long int> nums_stack;
     List::List<long long int> nums_list;
-    comparison_demo(nums_queue, nums_stack);
+    // nums_list.
+    comparison_demo(nums_queue, nums_stack, nums_list);
     std::cout << "terminating process" << std::endl;
     return 0;
 }

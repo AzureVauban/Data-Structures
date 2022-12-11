@@ -18,12 +18,13 @@ namespace List
     template <class T>
     class List
     {
-        Node<T>* Head;
+        Node<T> *Head;
         int Size;
-//functions
- int getSize() { return this->Size; }
+        // functions
+        int getSize() { return this->Size; }
         const bool isEmpty() { return this->Size == 0; }
-        private:
+
+    private:
         Node<T> *getHead() { return this->Head; }
         Node<T> *getEnd()
         {
@@ -37,7 +38,59 @@ namespace List
             }
             return current;
         }
+        const bool iswithinRange(const int index)
+        {
+            // TODO FINISH
+            return true;
+        }
+
     public:
+        void push(T Data)
+        {
+            if (this->isEmpty())
+            {
+                // overwrite the head pointer
+                this->Head = new Node<T>(nullptr, Data, nullptr);
+            }
+            else
+            {
+                // create a new head
+                Node<T> *new_head = new Node<T>(nullptr, Data, this->Head);
+                this->Head->setPrev(nullptr);
+                this->Head = new_head;
+                // set the index values of the new Node
+                // this->setIndex();
+            }
+            this->Size += 1;
+        }
+        void insert(T Data, const int Index)
+        { // TODO FINISH
+        }
+        void remove(const int Index)
+        {
+            // TODO FINISH
+        }
+        void reverse()
+        {
+            // TODO FINISH
+        }
+        T pop()
+        {
+            T old_head_value = this->getHead()->getData();
+            if (!this->isEmpty())
+            {
+                Node<T> *old_head = this->getHead();
+                Node<T> *new_head = old_head->getNext();
+                this->Head = new_head;
+                old_head->setNext(nullptr);
+            }
+            this->Size -= 1;
+            return old_head_value;
+        }
+        T peak()
+        {
+            return this->getHead()->getData();
+        }
         explicit List()
         {
             this->Head = nullptr;
