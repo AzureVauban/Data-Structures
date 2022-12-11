@@ -52,8 +52,16 @@ void comparison_demo(Queue::Queue<long long int> &Queue,
               << "Peaking Stack: " << Stack.peak() << std::endl;
     for (int i = 0; i < 9; i++)
     {
-        std::cout << "Dequeuing (From Queue): " << Queue.dequeue() << " | "
-                  << "Popping (From Stack): " << Stack.pop() << std::endl;
+        if (i < 4)
+        {
+            std::cout << "Dequeuing (From Queue): " << Queue.dequeue() << "  | "
+                      << "Popping (From Stack): " << Stack.pop() << std::endl;
+        }
+        else
+        {
+            std::cout << "Dequeuing (From Queue): " << Queue.dequeue() << " | "
+                      << "Popping (From Stack): " << Stack.pop() << std::endl;
+        }
     }
     std::cout << "Peaking Queue: " << Queue.peak() << std::endl
               << "Peaking Stack: " << Stack.peak() << std::endl;
