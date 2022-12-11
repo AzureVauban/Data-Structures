@@ -55,7 +55,7 @@ namespace Stack
                 this->setIndex();
             }
             this->Size += 1;
-
+        }
         T peak() { return this->getHead()->getData(); }
 
         T pop()
@@ -80,7 +80,7 @@ namespace Stack
         }
         ~Stack()
         {
-             while (this->getSize() != 0)
+            while (this->getSize() != 0)
             {
                 this->pop();
             }
