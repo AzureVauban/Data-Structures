@@ -118,7 +118,7 @@ namespace Solution
                 {
                     this->pop();
                 }
-                delete Head;
+                //delete Head;
                 this->Size = 0;
                 std::cout << "Destroyed Queue object at " << this << std::endl;
             }
@@ -292,7 +292,7 @@ int main()
 
     Queue::Queue<int> nums_queue;
     Stack::Stack<int> nums_stack;
-    int size = 100;
+    int size = 10;
     for (int i = 0; i < size; i++)
     {
         int input_number = i * i;
