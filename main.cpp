@@ -50,11 +50,11 @@ void comparison_demo(Queue::Queue<long long int> &Queue, Stack::Stack<long long 
         Stack.push(term);
         if (i % 2 == 0)
         {
-            List.push(term);
+            List.append(term);
         }
         else
         {
-            List.push(term * -2);
+            List.append(term * -2);
         }
     }
     std::cout << "Peaking Queue: " << Queue.peak() << std::endl
@@ -73,7 +73,7 @@ void comparison_demo(Queue::Queue<long long int> &Queue, Stack::Stack<long long 
                       << "Popping (From Stack): " << Stack.pop() << std::endl;
         }
     }
-  std::cout << "Peaking Queue: " << Queue.peak() << std::endl
+    std::cout << "Peaking Queue: " << Queue.peak() << std::endl
               << "Peaking Stack: " << Stack.peak() << std::endl
               << "Peaking List: " << List.peak() << std::endl;
 }

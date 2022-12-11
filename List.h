@@ -45,7 +45,7 @@ namespace List
         }
 
     public:
-        void push(T Data)
+        void append(T Data)
         {
             if (this->isEmpty())
             {
@@ -65,7 +65,7 @@ namespace List
         }
         void insert(T Data, const int Index)
         { // TODO FINISH
-        }
+                }
         void remove(const int Index)
         {
             // TODO FINISH
