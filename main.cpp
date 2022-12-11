@@ -15,6 +15,7 @@ long long int fibsequence(const long long int n)
 
 void Queue_demo(Queue::Queue<long long int> &nums)
 {
+    //first in, first out
     int size = 11;
     for (int i = 0; i < size; i++)
     {
@@ -28,6 +29,7 @@ void Queue_demo(Queue::Queue<long long int> &nums)
 
 void Stack_demo(Stack::Stack<long long int> &nums)
 {
+    // last in, first out
     int size = 11;
     for (int i = 0; i < size; i++)
     {
