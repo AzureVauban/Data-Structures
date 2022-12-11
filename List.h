@@ -67,9 +67,19 @@ namespace List
             if (this->isnotwithinRange(Index))
             {
                 std::cout << "IS NOT WITHIN RANGE" << std::endl;
-                return;
+            } else if (Index == this->getSize()-1)
+            {
+                this->append(Data);
+            } 
+            else {
+                Node<T>* current = this->getHead();
+                while (current->getIndex() != Index) {
+                    current = current->getNext();
+                }
+                //insert new node belo
+                    this->Size += 1;
             }
-            
+
         }
         void remove(const int Index)
         {
