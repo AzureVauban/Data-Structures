@@ -42,10 +42,10 @@ void Stack_demo(Stack::Stack<long long int> &nums)
 }
 int main()
 {
-   // Queue::Queue<long long int> nums_queue;
-    Stack::Stack<long long int> nums_stack;
-    //Queue_demo(nums_queue);
-    Stack_demo(nums_stack);
+    Queue::Queue<long long int> nums_queue;
+    //Stack::Stack<long long int> nums_stack;
+    Queue_demo(nums_queue);
+    //Stack_demo(nums_stack);
     std::cout << "terminating process" << std::endl;
     return 0;
 }

@@ -56,8 +56,17 @@ namespace Stack
         T peak() { return this->getHead()->getData(); }
 
         T pop()
-        { /* ADD NEW CODE HERE*/
-    
+        {
+            T old_head_value = this->getHead()->getData();
+            if (!this->isEmpty())
+            {
+                Node<T> *old_head = this->getHead();
+                Node<T> *new_head = old_head->getNext();
+                this->Head = new_head;
+                old_head->setNext(nullptr);
+            }
+            this->Size -= 1;
+            return old_head_value;
         }
 
     public:
