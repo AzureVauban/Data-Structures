@@ -5,6 +5,8 @@
 
 namespace Stack
 {
+
+    //? use the first in, last out paradigm
     template <class T>
     class Stack
     {
