@@ -42,16 +42,19 @@ namespace Stack
         {
             if (this->isEmpty())
             {
-                this->Size += 1;
                 // overwrite the head pointer
                 this->Head = new Node<T>(nullptr, Data, nullptr);
-            } else {
-
             }
-
-            // set the next index
-            //this->getEnd()->setIndex(this->getSize() - 1);
-        }
+            else
+            {
+                // create a new head
+                Node<T> *new_head = new Node<T>(nullptr, Data, this->Head);
+                this->Head->setPrev(nullptr);
+                this->Head = new_head;
+                // set the index values of the new Node
+                this->setIndex();
+            }
+            this->Size += 1;
 
         T peak() { return this->getHead()->getData(); }
 
@@ -77,10 +80,11 @@ namespace Stack
         }
         ~Stack()
         {
-            while (this->Head)
+             while (this->getSize() != 0)
             {
-                delete this->getEnd();
+                this->pop();
             }
+            delete this->Head;
             // delete Head;
             this->Size = 0;
             std::cout << "Destroyed Queue object at " << this << std::endl;
