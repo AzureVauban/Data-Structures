@@ -76,7 +76,7 @@ namespace List
                 while (current->getIndex() != Index) {
                     current = current->getNext();
                 }
-                //insert new node belo
+                //insert new node below
                     this->Size += 1;
             }
 
