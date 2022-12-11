@@ -55,8 +55,8 @@ namespace Queue
             else
             {
                 // append the node to the end
-                Node<T> *new_head = new Node<T>(nullptr, Data, nullptr);
-                
+                Node<T> *new_endpoint = new Node<T>(nullptr, Data, nullptr);
+                this->getEnd()->setNext(new_endpoint);
                 // set the index values of the new Node
                 this->setIndex();
             }
