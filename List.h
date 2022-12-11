@@ -4,7 +4,7 @@
 #include "Nodebase.h"
 
 namespace List
-{
+{ // todo finish this
     /*
     operations:
     - peak
@@ -20,8 +20,9 @@ namespace List
     {
         Node<T> Head;
         int Size;
-        public:
-        explicit Queue()
+
+    public:
+        explicit List()
         {
             this->Head = nullptr;
             this->Size = 0;
