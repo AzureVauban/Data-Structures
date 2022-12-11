@@ -45,14 +45,14 @@ void comparison_demo(Queue::Queue<long long int> &Queue,
 {
     for (int i = 1; i <= 10; i++)
     {
-        Queue.enqueue(fibsequence(i));
-        Stack.push(fibsequence(i));
+        Queue.enqueue(fibsequence(i+1));
+        Stack.push(fibsequence(i+1));
     }
     std::cout << "Peaking Queue: " << Queue.peak() << std::endl
               << "Peaking Stack: " << Stack.peak() << std::endl;
     for (int i = 0; i < 9; i++)
     {
-        std::cout << "Dequeuing " << Queue.dequeue() << " | "
+        std::cout << "Dequeuing (From Queue): " << Queue.dequeue() << " | "
                   << "Popping (From Stack): " << Stack.pop() << std::endl;
     }
 }
