@@ -15,10 +15,10 @@ namespace List
     - remove
     - reverse
     */
-    template <class T>
+    template <class H>
     class List
     {
-        Node<T> *Head;
+        Node<H> *Head;
         int Size;
         // functions
     public:
@@ -26,10 +26,10 @@ namespace List
         const bool isEmpty() { return this->Size == 0; }
 
     private:
-        Node<T> *getHead() { return this->Head; }
-        Node<T> *getEnd()
+        Node<H> *getHead() { return this->Head; }
+        Node<H> *getEnd()
         {
-            Node<T> *current = this->getHead();
+            Node<H> *current = this->getHead();
             if (!isEmpty())
             {
                 while (current->getNext())
@@ -44,7 +44,7 @@ namespace List
         {
             if (!isEmpty())
             {
-                Node<T> *current = this->getHead();
+                Node<H> *current = this->getHead();
                 int new_index = 0;
                 while (current->getNext())
                 {
@@ -55,16 +55,16 @@ namespace List
         }
 
     public:
-        void append(T Data)
+        void append(H Data)
         {
             if (this->isEmpty())
             {
                 // overwrite the head pointer
-                this->Head = new Node<T>(nullptr, Data, nullptr);
+                this->Head = new Node<H>(nullptr, Data, nullptr);
             }
             else
             { // create a new head
-                Node<T> *new_head = new Node<T>(nullptr, Data, this->Head);
+                Node<H> *new_head = new Node<H>(nullptr, Data, this->Head);
                 this->Head->setPrev(nullptr);
                 this->Head = new_head;
                 // set the index values of the new Node
@@ -72,7 +72,7 @@ namespace List
             this->setIndex();
             this->Size += 1;
         }
-        void insert(T Data, const int Index)
+        void insert(H Data, const int Index)
         { // TODO FINISH
             if (this->isnotwithinRange(Index))
             {
@@ -88,14 +88,14 @@ namespace List
             }
             else
             {
-                Node<T> *current = this->getHead();
+                Node<H> *current = this->getHead();
                 while (current->getIndex() != Index)
                 {
                     current = current->getNext();
                 }
                 // insert new node below node with the selected index
-                Node<T> *previous_of_new = current->getPrev();
-                Node<T> *new_node = new Node<T>(previous_of_new, Data, current);
+                Node<H> *previous_of_new = current->getPrev();
+                Node<H> *new_node = new Node<H>(previous_of_new, Data, current);
                 previous_of_new->setNext(new_node);
                 current->setPrev(new_node);
                 // set the index
@@ -111,13 +111,13 @@ namespace List
         {
             // TODO FINISH
         }
-        T pop()
+        H pop()
         {
-            T old_head_value = this->getHead()->getData();
+            H old_head_value = this->getHead()->getData();
             if (!this->isEmpty())
             {
-                Node<T> *old_head = this->getHead();
-                Node<T> *new_head = old_head->getNext();
+                Node<H> *old_head = this->getHead();
+                Node<H> *new_head = old_head->getNext();
                 this->Head = new_head;
                 old_head->setNext(nullptr);
             }
@@ -125,7 +125,7 @@ namespace List
             return old_head_value;
         }
 
-        T peak()
+        H peak()
         {
             return this->getHead()->getData();
         }

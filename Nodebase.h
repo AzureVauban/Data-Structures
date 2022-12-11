@@ -3,13 +3,13 @@
 
 #include <iostream>
 
-template <class T>
+template <class N>
 class Node
 {
     int index;
     Node *next;
     Node *prev;
-    T data;
+    N data;
 
 public:
     // setters
@@ -17,14 +17,14 @@ public:
     void setIndex(const int index) { this->index = index; }
     void setNext(Node *next) { this->next = next; }
     void setPrev(Node *prev) { this->prev = prev; }
-    void setData(T data) { this->data = data; }
+    void setData(N data) { this->data = data; }
 
     // getters
 
     const int &getIndex() { return this->index; }
     Node *getNext() { return this->next; }
     Node *getPrev() { return this->prev; }
-    const T &getData() { return this->data; }
+    const N &getData() { return this->data; }
 
     // functions
 
@@ -36,7 +36,7 @@ public:
                   << "Index: " << this->getIndex() << std::endl;
     }
 
-    explicit Node(Node *prev, T Data, Node *next)
+    explicit Node(Node *prev, N Data, Node *next)
     {
         setIndex(0);
         setPrev(prev);

@@ -10,21 +10,21 @@ namespace Stack
 
     //? how are elements added to the Stack?
     //* insert at above head
-    template <class T>
+    template <class H>
     class Stack
     {
-        Node<T> *Head;
+        Node<H> *Head;
         int Size;
 
-        Node<T> *getHead() { return this->Head; }
+        Node<H> *getHead() { return this->Head; }
 
     public:
         const int getSize() { return this->Size; }
 
     private:
-        Node<T> *getEnd()
+        Node<H> *getEnd()
         {
-            Node<T> *current = this->getHead();
+            Node<H> *current = this->getHead();
             if (!isEmpty())
             {
                 while (current->getNext())
@@ -38,17 +38,17 @@ namespace Stack
     public:
         const bool isEmpty() { return this->Head == nullptr; }
 
-        void push(T Data)
+        void push(H Data)
         {
             if (this->isEmpty())
             {
                 // overwrite the head pointer
-                this->Head = new Node<T>(nullptr, Data, nullptr);
+                this->Head = new Node<H>(nullptr, Data, nullptr);
             }
             else
             {
                 // create a new head
-                Node<T> *new_head = new Node<T>(nullptr, Data, this->Head);
+                Node<H> *new_head = new Node<H>(nullptr, Data, this->Head);
                 this->Head->setPrev(nullptr);
                 this->Head = new_head;
                 // set the index values of the new Node
@@ -56,15 +56,15 @@ namespace Stack
             }
             this->Size += 1;
         }
-        T peak() { return this->getHead()->getData(); }
+        H peak() { return this->getHead()->getData(); }
 
-        T pop()
+        H pop()
         {
-            T old_head_value = this->getHead()->getData();
+            H old_head_value = this->getHead()->getData();
             if (!this->isEmpty())
             {
-                Node<T> *old_head = this->getHead();
-                Node<T> *new_head = old_head->getNext();
+                Node<H> *old_head = this->getHead();
+                Node<H> *new_head = old_head->getNext();
                 this->Head = new_head;
                 old_head->setNext(nullptr);
             }
