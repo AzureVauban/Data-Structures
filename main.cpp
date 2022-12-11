@@ -13,32 +13,37 @@ long long int fibsequence(const long long int n)
     }
 }
 
+void Queue_demo(Queue::Queue<long long int> &nums)
+{
+    int size = 11;
+    for (int i = 0; i < size; i++)
+    {
+        nums.enqueue(fibsequence(i));
+    }
+    for (int i = 0; i < size-1; i++)
+    {
+        std::cout << "Dequeueing: " << nums.dequeue() << std::endl;
+    }
+}
+
+void Stack_demo(Stack::Stack<long long int> &nums)
+{
+    int size = 11;
+    for (int i = 0; i < size; i++)
+    {
+        nums.push(fibsequence(i));
+    }
+    for (int i = 0; i < size-1; i++)
+    {
+        std::cout << "Popping from the stack: " << nums.pop() << std::endl;
+    }
+}
 int main()
 {
-
-    /*
-    Stack::Stack<int> stack_nums;
-    for (int i = 0; i < 10; i++)
-    {
-        stack_nums.push(fibsequence(i));
-    }
-    // std::cout << "destroying " << stack_nums.pop() << std::endl; // dequeues 55
-    */
-
     Queue::Queue<long long int> nums_queue;
-    //Stack::Stack<int> nums_stack;
-    int size = 100;
-    for (int i = 0; i < size; i++)
-    {
-        nums_queue.enqueue(fibsequence(i));
-      //  nums_stack.push(input_number);
-    }
-    for (int i = 0; i < size; i++)
-    {
-        std::cout << "Dequeueing: " << nums_queue.dequeue() << std::endl;
-                 // << "Popping from the Stack " << nums_stack.pop() << std::endl;
-    }
-
+    Stack::Stack<long long int> nums_stack;
+    Queue_demo(nums_queue);
+    Stack_demo(nums_stack);
     std::cout << "terminating process" << std::endl;
     return 0;
 }
