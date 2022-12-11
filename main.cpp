@@ -91,14 +91,6 @@ int main()
     std::cout << nums_list.peak() << std::endl;
     for (int i = -1; i < nums_list.getSize() + 1; i++)
     {
-        if (nums_list.isnotwithinRange(i))
-        {
-            std::cout << "\x1B[31m" << i << " is not within range!\x1B[0m" << std::endl;
-        }
-        else
-        {
-            std::cout << "\x1B[32m" << i << " is within range.\x1B[0m" << std::endl;
-        }
         nums_list.insert(i, i);
     }
 

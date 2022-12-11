@@ -39,9 +39,20 @@ namespace List
             }
             return current;
         }
-
-    public:
         const bool isnotwithinRange(const int index) { return index < 0 || index >= this->getSize(); }
+        void setIndex()
+        {
+            if (!isEmpty())
+            {
+                Node<T> *current = this->getHead();
+                int new_index = 0;
+                while (current->getNext())
+                {
+                    current->setIndex(new_index);
+                    current = current->getNext();
+                }
+            }
+        }
 
     public:
         void append(T Data)
@@ -52,31 +63,45 @@ namespace List
                 this->Head = new Node<T>(nullptr, Data, nullptr);
             }
             else
-            {
-                // create a new head
+            { // create a new head
                 Node<T> *new_head = new Node<T>(nullptr, Data, this->Head);
                 this->Head->setPrev(nullptr);
                 this->Head = new_head;
                 // set the index values of the new Node
-                // this->setIndex();
+                this->setIndex();
             }
             this->Size += 1;
         }
         void insert(T Data, const int Index)
         { // TODO FINISH
-            if (this->isnotwithinRange(Index)) { std::cout << "IS NOT WITHIN RANGE" << std::endl;} 
-                else if (Index == this->getSize()-1) { this->append(Data);} 
-            else {
-                Node<T>* current = this->getHead();
-                while (current->getIndex() != Index) {
+            if (this->isnotwithinRange(Index))
+            {
+                std::cout << "IS NOT WITHIN RANGE" << std::endl;
+            }
+            else if (Index == this->getSize() - 1)
+            {
+                this->append(Data);
+            }
+            else if (!this->isnotwithinRange(Index) && this->isEmpty())
+            {
+                this->append(Data);
+            }
+            else
+            {
+                Node<T> *current = this->getHead();
+                while (current->getIndex() != Index)
+                {
                     current = current->getNext();
                 }
                 // insert new node below node with the selected index
-                Node<T>* previous_of_new = current->getPrev();
-                Node<T>* new_node 
+                Node<T> *previous_of_new = current->getPrev();
+                Node<T> *new_node = new Node<T>(previous_of_new, Data, current);
+                previous_of_new->setNext(new_node);
+                current->setPrev(new_node);
+                // set the index
+                this->setIndex();
                 this->Size += 1;
             }
-
         }
         void remove(const int Index)
         {
